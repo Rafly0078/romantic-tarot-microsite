@@ -1,0 +1,73 @@
+{
+  "generatedAt": "2026-06-21T23:25:51.738Z",
+  "assets": {
+    "celestial": [
+      "/assets/celestial/sun_ornate_01.png",
+      "/assets/celestial/sun_ornate_02.png",
+      "/assets/celestial/moon_crescent_01.png",
+      "/assets/celestial/moon_crescent_02.png",
+      "/assets/celestial/moon_full_01.png",
+      "/assets/celestial/star_small_01.png",
+      "/assets/celestial/star_small_02.png",
+      "/assets/celestial/star_cluster_01.png",
+      "/assets/celestial/cloud_dreamy_01.png",
+      "/assets/celestial/cloud_dreamy_02.png",
+      "/assets/celestial/sparkle_01.png",
+      "/assets/celestial/sparkle_02.png",
+      "/assets/celestial/sparkle_03.png"
+    ],
+    "decor": [
+      "/assets/decor/corner_ornament_01.png",
+      "/assets/decor/corner_ornament_02.png",
+      "/assets/decor/divider_tarot_01.png",
+      "/assets/decor/divider_tarot_02.png",
+      "/assets/decor/floral_mini_01.png",
+      "/assets/decor/floral_mini_02.png",
+      "/assets/decor/ribbon_01.png",
+      "/assets/decor/ribbon_02.png",
+      "/assets/decor/heart_mini_01.png",
+      "/assets/decor/heart_mini_02.png",
+      "/assets/decor/magical_swirl_01.png"
+    ],
+    "cards": [
+      "/assets/cards/tarot_card_frame_front_01.png",
+      "/assets/cards/tarot_card_frame_front_02.png",
+      "/assets/cards/tarot_card_back_01.png",
+      "/assets/cards/tarot_card_back_02.png",
+      "/assets/cards/tarot_badge_chapter_1.png",
+      "/assets/cards/tarot_badge_chapter_2.png",
+      "/assets/cards/tarot_badge_chapter_3.png",
+      "/assets/cards/tarot_badge_chapter_4.png"
+    ],
+    "ui": [
+      "/assets/ui/text_panel_cream_01.png",
+      "/assets/ui/text_panel_dark_01.png",
+      "/assets/ui/text_panel_pink_01.png",
+      "/assets/ui/button_base_primary_01.png",
+      "/assets/ui/button_base_secondary_01.png",
+      "/assets/ui/progress_frame_01.png"
+    ],
+    "mascot": [
+      "/assets/mascot/mascot_familiar_01.png",
+      "/assets/mascot/wand_star_01.png",
+      "/assets/mascot/envelope_winged_01.png",
+      "/assets/mascot/gift_box_magical_01.png"
+    ],
+    "bracelet": [
+      "/assets/bracelet/bracelet_placeholder_01.png",
+      "/assets/bracelet/bracelet_display_frame_01.png",
+      "/assets/bracelet/bracelet_display_frame_02.png"
+    ],
+    "placeholders": [
+      "/assets/placeholders/lover_photo_frame_tarot_portrait_01.png",
+      "/assets/placeholders/lover_photo_frame_moon_portrait_01.png",
+      "/assets/placeholders/lover_photo_frame_soft_oval_01.png"
+    ],
+    "loading": [
+      "/assets/loading/loading_tarot_card_01.png",
+      "/assets/loading/loading_tarot_card_02.png",
+      "/assets/loading/loading_starburst_01.png",
+      "/assets/loading/loading_glow_panel_01.png"
+    ]
+  }
+}

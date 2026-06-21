@@ -1,0 +1,328 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════
+   TAROT DESIGN SYSTEM — Custom Properties
+   ═══════════════════════════════════════════════ */
+:root {
+  color-scheme: light;
+
+  /* Palette */
+  --color-ivory: #fff7ea;
+  --color-parchment: #fef6e8;
+  --color-blush: #f4c3ca;
+  --color-rose: #c56f82;
+  --color-peach: #edb49d;
+  --color-navy: #11172d;
+  --color-midnight: #0a0f1e;
+  --color-charcoal: #292733;
+  --color-gold: #cfa15f;
+  --color-rose-gold: #d99a8b;
+  --color-lavender: #b8a9c9;
+
+  /* Spacing tokens */
+  --safe-top: max(env(safe-area-inset-top, 0px), 12px);
+  --safe-bottom: max(env(safe-area-inset-bottom, 0px), 16px);
+  --safe-left: max(env(safe-area-inset-left, 0px), 0px);
+  --safe-right: max(env(safe-area-inset-right, 0px), 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--color-ivory);
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════
+   FONT UTILITIES
+   ═══════════════════════════════════════════════ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-accent {
+  font-family: var(--font-accent);
+}
+
+/* ═══════════════════════════════════════════════
+   CHAPTER SHELL — Full-viewport container
+   ═══════════════════════════════════════════════ */
+.chapter-shell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-width: 460px;
+  margin-inline: auto;
+  padding: var(--safe-top) 20px var(--safe-bottom);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chapter-shell::-webkit-scrollbar {
+  width: 3px;
+}
+.chapter-shell::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chapter-shell::-webkit-scrollbar-thumb {
+  background: rgba(207, 161, 95, 0.25);
+  border-radius: 99px;
+}
+
+/* ═══════════════════════════════════════════════
+   PRIMARY BUTTON — Magical tarot CTA
+   ═══════════════════════════════════════════════ */
+.tarot-button-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(207, 161, 95, 0.72);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.10) 0%, rgba(217, 154, 139, 0.14) 50%, rgba(197, 111, 130, 0.12) 100%),
+    linear-gradient(180deg, #16213a 0%, #11172d 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+    0 18px 46px rgba(17, 23, 45, 0.28),
+    0 0 24px rgba(207, 161, 95, 0.08);
+  color: #fff7ea;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding: 0.85rem 1.5rem;
+  text-decoration: none;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.tarot-button-primary::before {
+  content: "✦";
+  font-size: 0.7em;
+  opacity: 0.6;
+  animation: sparkle-pulse 2.2s ease-in-out infinite;
+}
+
+.tarot-button-primary::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.06) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.tarot-button-primary:active {
+  transform: scale(0.97) translateY(1px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08),
+    0 8px 24px rgba(17, 23, 45, 0.3);
+}
+
+.tarot-button-primary:focus-visible {
+  outline: 2px solid #cfa15f;
+  outline-offset: 4px;
+}
+
+/* ═══════════════════════════════════════════════
+   PARCHMENT PANEL — Text/copy container
+   ═══════════════════════════════════════════════ */
+.parchment-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  border: 1.5px solid rgba(207, 161, 95, 0.4);
+  background:
+    linear-gradient(160deg, rgba(255, 247, 234, 0.97) 0%, rgba(254, 246, 232, 0.95) 40%, rgba(244, 195, 202, 0.15) 100%);
+  box-shadow:
+    0 12px 40px rgba(17, 23, 45, 0.08),
+    0 2px 8px rgba(17, 23, 45, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  padding: 1.15rem 1.15rem;
+  backdrop-filter: blur(6px);
+}
+
+/* Corner flourishes */
+.parchment-panel::before,
+.parchment-panel::after {
+  content: "❋";
+  position: absolute;
+  font-size: 0.8rem;
+  color: rgba(207, 161, 95, 0.35);
+  pointer-events: none;
+}
+.parchment-panel::before {
+  top: 8px;
+  left: 10px;
+}
+.parchment-panel::after {
+  bottom: 8px;
+  right: 10px;
+}
+
+/* Inner decorative border */
+.parchment-panel-inner {
+  position: absolute;
+  inset: 6px;
+  border-radius: 1rem;
+  border: 1px solid rgba(207, 161, 95, 0.15);
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════
+   3D CARD UTILITIES
+   ═══════════════════════════════════════════════ */
+.preserve-3d {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  will-change: transform;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* ═══════════════════════════════════════════════
+   SPARKLE PARTICLES (CSS-only)
+   ═══════════════════════════════════════════════ */
+@keyframes sparkle-pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes sparkle-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1);
+  }
+  85% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(0.3);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 0.9; transform: scale(1.1) rotate(180deg); }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0) rotate(var(--float-rotate, 0deg)); }
+  50% { transform: translateY(var(--float-y, -8px)) rotate(calc(var(--float-rotate, 0deg) + 2deg)); }
+}
+
+.sparkle-particle {
+  position: absolute;
+  pointer-events: none;
+  animation: sparkle-float var(--sparkle-duration, 2.5s) ease-out forwards;
+  animation-delay: var(--sparkle-delay, 0s);
+}
+
+.twinkle-star {
+  position: absolute;
+  pointer-events: none;
+  animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+.floating-element {
+  position: absolute;
+  pointer-events: none;
+  animation: gentle-float var(--float-duration, 5s) ease-in-out infinite;
+  animation-delay: var(--float-delay, 0s);
+}
+
+/* ═══════════════════════════════════════════════
+   LOADING OVERLAY SPECIFIC
+   ═══════════════════════════════════════════════ */
+@keyframes card-shuffle {
+  0%, 100% {
+    transform: rotate(var(--card-rest-rotate, 0deg)) translateX(var(--card-rest-x, 0px)) translateY(0);
+  }
+  30%, 70% {
+    transform: rotate(var(--card-spread-rotate, 0deg)) translateX(var(--card-spread-x, 0px)) translateY(var(--card-lift, 0px));
+  }
+}
+
+@keyframes progress-fill {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+
+@keyframes dot-bounce {
+  0%, 100% { opacity: 0.25; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-5px); }
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE HELPERS
+   ═══════════════════════════════════════════════ */
+@layer utilities {
+  .safe-area-pad {
+    padding-top: var(--safe-top);
+    padding-bottom: var(--safe-bottom);
+    padding-left: var(--safe-left);
+    padding-right: var(--safe-right);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   REDUCED MOTION SUPPORT
+   ═══════════════════════════════════════════════ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}

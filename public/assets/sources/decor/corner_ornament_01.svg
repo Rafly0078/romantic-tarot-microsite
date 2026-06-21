@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <!-- Main outer frame arc -->
+    <path d="M122 884 L122 326 C122 213 213 122 326 122 L884 122" stroke="url(#goldRose)" stroke-width="32" stroke-linecap="round"/>
+    <path d="M152 854 L152 340 C152 237 237 152 340 152 L854 152" stroke="#cfa15f" stroke-width="10" stroke-linecap="round" fill="none" opacity="0.5"/>
+    <!-- Inner decorative curves -->
+    <path d="M206 790 C334 755 391 661 380 522 C502 530 606 472 653 345" stroke="#cfa15f" stroke-width="18" stroke-linecap="round"/>
+    <path d="M230 520 C310 432 436 428 518 504" stroke="#d99a8b" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+    <!-- Finer scroll detail line -->
+    <path d="M260 680 C340 620 420 600 500 620" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" opacity="0.45"/>
+    <path d="M680 260 C620 340 600 420 620 500" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" opacity="0.45"/>
+    <!-- Scroll curls -->
+    <path d="M160 780 C180 720 220 680 290 660 C240 700 210 740 200 800" stroke="#d99a8b" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <path d="M780 160 C720 180 680 220 660 290 C700 240 740 210 800 200" stroke="#d99a8b" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <!-- Center ornament -->
+    <circle cx="380" cy="522" r="34" fill="#fff7ea" stroke="#cfa15f" stroke-width="12"/>
+    <circle cx="380" cy="522" r="18" fill="none" stroke="#d99a8b" stroke-width="4" opacity="0.65"/>
+    <!-- Leaf petal details -->
+    <path d="M660 344 C718 324 786 344 826 392 C760 400 700 386 660 344Z" fill="#f5c6ce" stroke="#c56f82" stroke-width="8"/>
+    <path d="M700 330 C730 304 766 310 784 336" stroke="#cfa15f" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.55"/>
+    <path d="M204 790 C184 854 132 890 70 900 C92 838 134 800 204 790Z" fill="#fff7ea" stroke="#cfa15f" stroke-width="8"/>
+    <path d="M170 824 C152 860 124 878 90 884" stroke="#d99a8b" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.55"/>
+    <path d="M310 480 C330 450 360 450 370 480 C360 510 330 510 310 480Z" fill="#f5c6ce" stroke="#c56f82" stroke-width="5" opacity="0.65"/>
+    <path d="M480 310 C450 330 450 360 480 370 C510 360 510 330 480 310Z" fill="#f5c6ce" stroke="#c56f82" stroke-width="5" opacity="0.65"/>
+    <!-- Dot trail -->
+    <circle cx="200" cy="790" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="235.0566004539875" cy="741.4202368176238" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="270.6609840174293" cy="693.3882567447021" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="307.3165556700432" cy="646.4074647609523" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="345.4415593842188" cy="600.8961048387644" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="385.33519448576675" cy="557.1533763039484" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="427.1533763039485" cy="515.3351944857667" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="470.8961048387643" cy="475.4415593842188" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="516.4074647609523" cy="437.3165556700432" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="563.3882567447021" cy="400.6609840174293" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="611.420236817624" cy="365.05660045398747" r="3.5" fill="#cfa15f" opacity="0.45"/><circle cx="660" cy="330" r="3.5" fill="#cfa15f" opacity="0.45"/>
+    <!-- Sparkles -->
+    <path d="M224 218 C227.36 239.84 230.16 242.64 252 246 C230.16 249.36 227.36 252.16 224 274 C220.64 252.16 217.84 249.36 196 246 C217.84 242.64 220.64 239.84 224 218Z" fill="url(#goldRose)" opacity="1"/>
+    <path d="M760 204 C762.16 218.04 763.96 219.84 778 222 C763.96 224.16 762.16 225.96 760 240 C757.84 225.96 756.04 224.16 742 222 C756.04 219.84 757.84 218.04 760 204Z" fill="#d99a8b" opacity="0.82"/>
+    <path d="M156 648 C157.92 660.48 159.52 662.08 172 664 C159.52 665.92 157.92 667.52 156 680 C154.08 667.52 152.48 665.92 140 664 C152.48 662.08 154.08 660.48 156 648Z" fill="#cfa15f" opacity="0.78"/>
+    <path d="M550 338 C551.44 347.36 552.64 348.56 562 350 C552.64 351.44 551.44 352.64 550 362 C548.56 352.64 547.36 351.44 538 350 C547.36 348.56 548.56 347.36 550 338Z" fill="#cfa15f" opacity="0.5"/>
+    <path d="M350 538 C351.44 547.36 352.64 548.56 362 550 C352.64 551.44 351.44 552.64 350 562 C348.56 552.64 347.36 551.44 338 550 C347.36 548.56 348.56 547.36 350 538Z" fill="#d99a8b" opacity="0.5"/>
+</svg>

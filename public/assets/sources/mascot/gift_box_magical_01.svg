@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <circle cx="512" cy="512" r="384" fill="url(#softGlow)"/>
+    <!-- Box body -->
+    <rect x="272" y="430" width="480" height="348" rx="42" fill="#f5c6ce" stroke="url(#goldRose)" stroke-width="18" filter="url(#gentleShadow)"/>
+    <!-- Box dots pattern -->
+    <circle cx="330" cy="510" r="4" fill="#c56f82" opacity="0.22"/><circle cx="410" cy="510" r="4" fill="#c56f82" opacity="0.22"/><circle cx="570" cy="510" r="4" fill="#c56f82" opacity="0.22"/><circle cx="650" cy="510" r="4" fill="#c56f82" opacity="0.22"/><circle cx="330" cy="570" r="4" fill="#c56f82" opacity="0.22"/><circle cx="410" cy="570" r="4" fill="#c56f82" opacity="0.22"/><circle cx="570" cy="570" r="4" fill="#c56f82" opacity="0.22"/><circle cx="650" cy="570" r="4" fill="#c56f82" opacity="0.22"/><circle cx="330" cy="630" r="4" fill="#c56f82" opacity="0.22"/><circle cx="410" cy="630" r="4" fill="#c56f82" opacity="0.22"/><circle cx="570" cy="630" r="4" fill="#c56f82" opacity="0.22"/><circle cx="650" cy="630" r="4" fill="#c56f82" opacity="0.22"/>
+    <!-- Shine highlights -->
+    <path d="M310 500 L340 460" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.35"/><path d="M320 520 L344 486" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.25"/>
+    <!-- Box lid -->
+    <rect x="238" y="350" width="548" height="126" rx="42" fill="#fff7ea" stroke="url(#goldRose)" stroke-width="18"/>
+    <!-- Lid highlight -->
+    <path d="M290 370 L340 370" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.4"/>
+    <!-- Vertical ribbon -->
+    <rect x="472" y="350" width="80" height="428" fill="#11172d" opacity="0.88"/>
+    <!-- Horizontal ribbon -->
+    <path d="M338 574 H686" stroke="#c56f82" stroke-width="12" stroke-linecap="round" opacity="0.48"/>
+    <!-- Bow (back petals) -->
+    <path d="M470 340 C360 240 280 280 280 340 C360 368 430 362 470 340Z" fill="#d99a8b" stroke="#cfa15f" stroke-width="8" opacity="0.6"/><path d="M554 340 C664 240 744 280 744 340 C664 368 594 362 554 340Z" fill="#d99a8b" stroke="#cfa15f" stroke-width="8" opacity="0.6"/>
+    <!-- Bow (front petals) -->
+    <path d="M500 350 C390 260 320 282 304 344 C390 374 456 372 500 350Z" fill="#efb59e" stroke="#cfa15f" stroke-width="14"/><path d="M524 350 C634 260 704 282 720 344 C634 374 568 372 524 350Z" fill="#efb59e" stroke="#cfa15f" stroke-width="14"/>
+    <!-- Bow loops & knot -->
+    <path d="M494 332 C478 306 460 304 466 324" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.7"/><path d="M530 332 C546 306 564 304 558 324" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.7"/>
+    <ellipse cx="512" cy="348" rx="26" ry="20" fill="#cfa15f" stroke="#fff7ea" stroke-width="4"/>
+    <!-- Sparkles -->
+    <path d="M242 232 C245.84 256.96 249.04 260.16 274 264 C249.04 267.84 245.84 271.04 242 296 C238.16 271.04 234.96 267.84 210 264 C234.96 260.16 238.16 256.96 242 232Z" fill="url(#goldRose)" opacity="1"/>
+    <path d="M780 232 C783.36 253.84 786.16 256.64 808 260 C786.16 263.36 783.36 266.16 780 288 C776.64 266.16 773.84 263.36 752 260 C773.84 256.64 776.64 253.84 780 232Z" fill="#d99a8b" opacity="0.86"/>
+    <path d="M778 686 C780.64 703.16 782.84 705.36 800 708 C782.84 710.64 780.64 712.84 778 730 C775.36 712.84 773.16 710.64 756 708 C773.16 705.36 775.36 703.16 778 686Z" fill="#cfa15f" opacity="0.72"/>
+    <path d="M246 720 C248.16 734.04 249.96 735.84 264 738 C249.96 740.16 248.16 741.96 246 756 C243.84 741.96 242.04 740.16 228 738 C242.04 735.84 243.84 734.04 246 720Z" fill="#d99a8b" opacity="0.7"/>
+    <path d="M512 244 C513.92 256.48 515.52 258.08 528 260 C515.52 261.92 513.92 263.52 512 276 C510.08 263.52 508.48 261.92 496 260 C508.48 258.08 510.08 256.48 512 244Z" fill="#fff7ea" opacity="0.6"/>
+</svg>

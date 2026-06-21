@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <circle cx="512" cy="512" r="382" fill="url(#softGlow)"/>
+    <!-- Body -->
+    <path d="M300 438 C296 282 412 204 512 204 C612 204 728 282 724 438 C808 508 794 714 650 800 C560 854 464 854 374 800 C230 714 216 508 300 438Z" fill="#11172d" stroke="url(#goldRose)" stroke-width="20" filter="url(#gentleShadow)"/>
+    <!-- Face -->
+    <path d="M342 446 C380 350 444 306 512 306 C580 306 644 350 682 446 C674 570 602 650 512 650 C422 650 350 570 342 446Z" fill="#fff7ea"/>
+    <!-- Eyes -->
+    <circle cx="444" cy="478" r="24" fill="#11172d"/>
+    <circle cx="580" cy="478" r="24" fill="#11172d"/>
+    <circle cx="438" cy="472" r="7" fill="#ffffff" opacity="0.8"/><circle cx="574" cy="472" r="7" fill="#ffffff" opacity="0.8"/>
+    <!-- Nose -->
+    <ellipse cx="512" cy="536" rx="10" ry="7" fill="#c56f82" opacity="0.7"/>
+    <!-- Mouth -->
+    <path d="M456 560 C486 594 538 594 568 560" stroke="#c56f82" stroke-width="12" stroke-linecap="round"/>
+    <!-- Blush -->
+    <ellipse cx="392" cy="548" rx="32" ry="22" fill="#f5c6ce" opacity="0.55"/><ellipse cx="632" cy="548" rx="32" ry="22" fill="#f5c6ce" opacity="0.55"/>
+    <!-- Whiskers -->
+    <line x1="360" y1="530" x2="280" y2="510" stroke="#11172d" stroke-width="5" stroke-linecap="round" opacity="0.35"/><line x1="360" y1="546" x2="284" y2="546" stroke="#11172d" stroke-width="5" stroke-linecap="round" opacity="0.3"/><line x1="360" y1="562" x2="288" y2="578" stroke="#11172d" stroke-width="5" stroke-linecap="round" opacity="0.25"/>
+    <line x1="664" y1="530" x2="744" y2="510" stroke="#11172d" stroke-width="5" stroke-linecap="round" opacity="0.35"/><line x1="664" y1="546" x2="740" y2="546" stroke="#11172d" stroke-width="5" stroke-linecap="round" opacity="0.3"/><line x1="664" y1="562" x2="736" y2="578" stroke="#11172d" stroke-width="5" stroke-linecap="round" opacity="0.25"/>
+    <!-- Ears -->
+    <path d="M390 318 C354 250 308 226 260 246 C286 306 326 346 390 318Z" fill="#f5c6ce" stroke="#cfa15f" stroke-width="12"/>
+    <path d="M370 310 C348 268 324 254 296 262" stroke="#c56f82" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+    <path d="M634 318 C670 250 716 226 764 246 C738 306 698 346 634 318Z" fill="#f5c6ce" stroke="#cfa15f" stroke-width="12"/>
+    <path d="M654 310 C676 268 700 254 728 262" stroke="#c56f82" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.5"/>
+    <!-- Collar necklace -->
+    <path d="M364 658 C420 706 604 706 660 658" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <circle cx="651.0271615014121" cy="645.5982920868711" r="6" fill="#cfa15f" opacity="0.8"/><circle cx="658.747337809453" cy="665.4529247587774" r="6" fill="#d99a8b" opacity="0.8"/><circle cx="633.2741389878819" cy="684.0741382779174" r="6" fill="#cfa15f" opacity="0.8"/><circle cx="580.3694511251097" cy="697.2499248836325" r="6" fill="#d99a8b" opacity="0.8"/><circle cx="512" cy="702" r="10" fill="#cfa15f" opacity="0.8"/><circle cx="443.6305488748904" cy="697.2499248836325" r="6" fill="#d99a8b" opacity="0.8"/><circle cx="390.72586101211806" cy="684.0741382779174" r="6" fill="#cfa15f" opacity="0.8"/><circle cx="365.252662190547" cy="665.4529247587774" r="6" fill="#d99a8b" opacity="0.8"/><circle cx="372.9728384985879" cy="645.5982920868711" r="6" fill="#cfa15f" opacity="0.8"/>
+    <!-- Crown star -->
+    <polygon points="512,106 524.2458698356829,158.43585495963882 569.9827560572969,130.01724394270312 541.5641450403612,175.75413016431713 594,188 541.5641450403612,200.24586983568287 569.9827560572969,245.98275605729688 524.2458698356829,217.56414504036118 512,270 499.75413016431713,217.56414504036118 454.0172439427031,245.9827560572969 482.43585495963885,200.2458698356829 430,188 482.43585495963885,175.75413016431713 454.0172439427031,130.01724394270312 499.75413016431713,158.43585495963885" fill="url(#goldRose)"/>
+    <polygon points="512,144 518.8883017825716,171.37016841479684 543.1126983722081,156.8873016277919 528.6298315852032,181.1116982174284 556,188 528.6298315852032,194.8883017825716 543.1126983722081,219.1126983722081 518.8883017825716,204.62983158520316 512,232 505.1116982174284,204.62983158520316 480.8873016277919,219.1126983722081 495.37016841479686,194.88830178257163 468,188 495.37016841479686,181.11169821742837 480.8873016277919,156.8873016277919 505.1116982174284,171.37016841479684" fill="#fff7ea" opacity="0.4"/>
+    <!-- Sparkles -->
+    <path d="M276 598 C279.36 619.84 282.16 622.64 304 626 C282.16 629.36 279.36 632.16 276 654 C272.64 632.16 269.84 629.36 248 626 C269.84 622.64 272.64 619.84 276 598Z" fill="url(#goldRose)" opacity="1"/>
+    <path d="M752 598 C755.36 619.84 758.16 622.64 780 626 C758.16 629.36 755.36 632.16 752 654 C748.64 632.16 745.84 629.36 724 626 C745.84 622.64 748.64 619.84 752 598Z" fill="#d99a8b" opacity="0.86"/>
+    <path d="M512 788 C514.64 805.16 516.84 807.36 534 810 C516.84 812.64 514.64 814.84 512 832 C509.36 814.84 507.16 812.64 490 810 C507.16 807.36 509.36 805.16 512 788Z" fill="#cfa15f" opacity="0.74"/>
+    <path d="M360 174 C361.68 184.92 363.08 186.32 374 188 C363.08 189.68 361.68 191.08 360 202 C358.32 191.08 356.92 189.68 346 188 C356.92 186.32 358.32 184.92 360 174Z" fill="#cfa15f" opacity="0.6"/>
+    <path d="M664 174 C665.68 184.92 667.08 186.32 678 188 C667.08 189.68 665.68 191.08 664 202 C662.32 191.08 660.92 189.68 650 188 C660.92 186.32 662.32 184.92 664 174Z" fill="#d99a8b" opacity="0.6"/>
+</svg>

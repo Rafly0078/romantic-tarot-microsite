@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <line x1="252" y1="782" x2="686" y2="348" stroke="#11172d" stroke-width="38" stroke-linecap="round" filter="url(#gentleShadow)"/>
+    <line x1="252" y1="782" x2="686" y2="348" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round"/>
+    <polygon points="728,168 748.6649053477148,256.11050524439054 825.5807358037436,208.41926419625645 777.8894947556095,285.33509465228514 866,306 777.8894947556095,326.66490534771486 825.5807358037436,403.58073580374355 748.6649053477148,355.88949475560946 728,444 707.3350946522852,355.88949475560946 630.4192641962564,403.58073580374355 678.1105052443905,326.66490534771486 590,306 678.1105052443905,285.33509465228514 630.4192641962564,208.41926419625645 707.3350946522851,256.11050524439054" fill="url(#goldRose)" stroke="#fff7ea" stroke-width="12"/>
+    <path d="M294 270 C297.84 294.96 301.04 298.16 326 302 C301.04 305.84 297.84 309.04 294 334 C290.16 309.04 286.96 305.84 262 302 C286.96 298.16 290.16 294.96 294 270Z" fill="url(#goldRose)" opacity="1"/>
+    <path d="M412 204 C414.4 219.6 416.4 221.6 432 224 C416.4 226.4 414.4 228.4 412 244 C409.6 228.4 407.6 226.4 392 224 C407.6 221.6 409.6 219.6 412 204Z" fill="#d99a8b" opacity="0.86"/>
+    <path d="M780 602 C782.88 620.72 785.28 623.12 804 626 C785.28 628.88 782.88 631.28 780 650 C777.12 631.28 774.72 628.88 756 626 C774.72 623.12 777.12 620.72 780 602Z" fill="#cfa15f" opacity="0.72"/>
+    <path d="M348 690 C454 676 518 620 540 518" stroke="#d99a8b" stroke-width="12" stroke-linecap="round"/>
+</svg>

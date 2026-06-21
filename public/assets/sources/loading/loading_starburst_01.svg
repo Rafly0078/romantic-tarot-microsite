@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1200" viewBox="0 0 1200 1200" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <circle cx="600" cy="600" r="560" fill="url(#softGlow)"/>
+    <line x1="698" y1="600" x2="1120" y2="600" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="741.2330803780652" y1="628.0930063703224" x2="986.4294004788728" y2="676.8655868743546" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="690.5401941861061" y1="637.5029763717788" x2="1080.4173569058692" y2="798.9953848298467" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="719.7316241715665" y1="680.0021135548227" x2="927.5990272472028" y2="818.8946718097233" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="669.2964645562816" y1="669.2964645562816" x2="967.6955262170047" y2="967.6955262170047" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="680.0021135548227" y1="719.7316241715665" x2="818.8946718097233" y2="927.5990272472028" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="637.5029763717788" y1="690.5401941861061" x2="798.9953848298467" y2="1080.4173569058692" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="628.0930063703224" y1="741.2330803780652" x2="676.8655868743546" y2="986.4294004788728" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="600" y1="698" x2="600" y2="1120" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="571.9069936296776" y1="741.2330803780652" x2="523.1344131256456" y2="986.4294004788728" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="562.4970236282212" y1="690.5401941861061" x2="401.00461517015333" y2="1080.4173569058692" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="519.9978864451773" y1="719.7316241715665" x2="381.10532819027685" y2="927.5990272472029" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="530.7035354437184" y1="669.2964645562816" x2="232.30447378299533" y2="967.6955262170047" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="480.2683758284335" y1="680.0021135548227" x2="272.40097275279714" y2="818.8946718097233" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="509.4598058138939" y1="637.5029763717788" x2="119.5826430941309" y2="798.9953848298468" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="458.7669196219348" y1="628.0930063703225" x2="213.57059952112724" y2="676.8655868743547" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="502" y1="600" x2="80" y2="600.0000000000001" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="458.7669196219348" y1="571.9069936296776" x2="213.57059952112724" y2="523.1344131256454" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="509.4598058138939" y1="562.4970236282212" x2="119.58264309413084" y2="401.00461517015333" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="480.2683758284335" y1="519.9978864451773" x2="272.4009727527971" y2="381.10532819027685" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="530.7035354437184" y1="530.7035354437184" x2="232.30447378299522" y2="232.30447378299533" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="519.9978864451773" y1="480.2683758284335" x2="381.10532819027674" y2="272.4009727527972" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="562.4970236282212" y1="509.4598058138939" x2="401.004615170153" y2="119.58264309413102" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="571.9069936296775" y1="458.76691962193485" x2="523.1344131256453" y2="213.57059952112724" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="600" y1="502" x2="599.9999999999999" y2="80" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="628.0930063703224" y1="458.7669196219348" x2="676.8655868743546" y2="213.57059952112724" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="637.5029763717788" y1="509.4598058138939" x2="798.9953848298468" y2="119.58264309413096" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="680.0021135548227" y1="480.2683758284335" x2="818.8946718097231" y2="272.4009727527971" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="669.2964645562816" y1="530.7035354437184" x2="967.6955262170046" y2="232.30447378299522" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="719.7316241715665" y1="519.9978864451773" x2="927.5990272472028" y2="381.10532819027674" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/><line x1="690.5401941861061" y1="562.4970236282211" x2="1080.417356905869" y2="401.004615170153" stroke="url(#goldRose)" stroke-width="18" stroke-linecap="round" opacity="0.8"/><line x1="741.2330803780651" y1="571.9069936296775" x2="986.4294004788728" y2="523.1344131256453" stroke="url(#goldRose)" stroke-width="10" stroke-linecap="round" opacity="0.52"/>
+    <circle cx="600" cy="600" r="112" fill="#fff7ea" stroke="url(#goldRose)" stroke-width="18" filter="url(#gentleShadow)"/>
+    <polygon points="600,522 610.7151361062225,574.131373089684 655.1543289325507,544.8456710674493 625.868626910316,589.2848638937775 678,600 625.868626910316,610.7151361062225 655.1543289325507,655.1543289325507 610.7151361062225,625.868626910316 600,678 589.2848638937775,625.868626910316 544.8456710674493,655.1543289325507 574.131373089684,610.7151361062225 522,600 574.131373089684,589.2848638937775 544.8456710674493,544.8456710674493 589.2848638937775,574.131373089684" fill="#c56f82"/>
+</svg>

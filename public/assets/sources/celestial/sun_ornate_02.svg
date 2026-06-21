@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <circle cx="256" cy="256" r="226" fill="url(#softGlow)"/>
+    <line x1="394" y1="256" x2="482" y2="256" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="387.24579924873115" y1="298.64434522374273" x2="470.93877268270467" y2="325.8378407287381" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="367.64434522374273" y1="337.1143648163613" x2="438.8378407287381" y2="388.83946701809896" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="337.1143648163613" y1="367.64434522374273" x2="388.83946701809896" y2="438.8378407287381" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="298.64434522374273" y1="387.24579924873115" x2="325.8378407287381" y2="470.93877268270467" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="256" y1="394" x2="256" y2="482" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="213.35565477625727" y1="387.2457992487312" x2="186.16215927126188" y2="470.9387726827047" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="174.88563518363873" y1="367.64434522374273" x2="123.1605329819011" y2="438.8378407287381" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="144.35565477625727" y1="337.11436481636133" x2="73.16215927126191" y2="388.83946701809896" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="124.75420075126883" y1="298.64434522374273" x2="41.061227317295305" y2="325.8378407287381" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="118" y1="256" x2="30" y2="256" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="124.75420075126877" y1="213.35565477625732" x2="41.06122731729525" y2="186.162159271262" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="144.35565477625727" y1="174.88563518363873" x2="73.16215927126188" y2="123.1605329819011" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="174.8856351836387" y1="144.35565477625727" x2="123.16053298190104" y2="73.16215927126191" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="213.35565477625724" y1="124.75420075126883" x2="186.16215927126186" y2="41.061227317295305" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="255.99999999999997" y1="118" x2="255.99999999999997" y2="30" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="298.64434522374273" y1="124.7542007512688" x2="325.83784072873806" y2="41.06122731729528" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="337.1143648163613" y1="144.35565477625724" x2="388.83946701809884" y2="73.16215927126186" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="367.64434522374273" y1="174.88563518363867" x2="438.8378407287381" y2="123.16053298190101" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/><line x1="387.24579924873115" y1="213.35565477625724" x2="470.93877268270467" y2="186.16215927126183" stroke="url(#goldRose)" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="256" cy="256" r="134" fill="url(#goldRose)" filter="url(#gentleShadow)"/>
+    <circle cx="256" cy="256" r="104" fill="#fff7ea" opacity="0.92"/>
+    <path d="M202 258 C226 286 286 286 310 258" stroke="#c56f82" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="216" cy="226" r="10" fill="#11172d" opacity="0.72"/>
+    <circle cx="296" cy="226" r="10" fill="#11172d" opacity="0.72"/>
+    <path d="M256 93 C258.64 110.16 260.84 112.36 278 115 C260.84 117.64 258.64 119.84 256 137 C253.36 119.84 251.16 117.64 234 115 C251.16 112.36 253.36 110.16 256 93Z" fill="url(#goldRose)" opacity="1"/>
+    <path d="M384 324 C385.92 336.48 387.52 338.08 400 340 C387.52 341.92 385.92 343.52 384 356 C382.08 343.52 380.48 341.92 368 340 C380.48 338.08 382.08 336.48 384 324Z" fill="#d99a8b" opacity="0.82"/>
+    <path d="M126 330 C127.68 340.92 129.08 342.32 140 344 C129.08 345.68 127.68 347.08 126 358 C124.32 347.08 122.92 345.68 112 344 C122.92 342.32 124.32 340.92 126 330Z" fill="#cfa15f" opacity="0.78"/>
+</svg>

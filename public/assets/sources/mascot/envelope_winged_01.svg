@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" fill="none">
+  <defs>
+    <linearGradient id="goldRose" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#f3d89f"/>
+      <stop offset="50%" stop-color="#d99a8b"/>
+      <stop offset="100%" stop-color="#cfa15f"/>
+    </linearGradient>
+    <linearGradient id="creamBlush" x1="0%" x2="100%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#fffaf1"/>
+      <stop offset="100%" stop-color="#f5c6ce"/>
+    </linearGradient>
+    <linearGradient id="roseDeep" x1="0%" x2="0%" y1="0%" y2="100%">
+      <stop offset="0%" stop-color="#c56f82"/>
+      <stop offset="100%" stop-color="#a8586c"/>
+    </linearGradient>
+    <linearGradient id="goldShine" x1="0%" x2="100%" y1="0%" y2="0%">
+      <stop offset="0%" stop-color="#cfa15f" stop-opacity="0.4"/>
+      <stop offset="50%" stop-color="#f3d89f" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="softGlow" cx="50%" cy="48%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#f5c6ce" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#d99a8b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="warmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f3d89f" stop-opacity="0.6"/>
+      <stop offset="60%" stop-color="#cfa15f" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#cfa15f" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="gentleShadow" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="28" flood-color="#11172d" flood-opacity="0.18"/>
+    </filter>
+    <filter id="innerGlow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+  <circle cx="512" cy="512" r="420" fill="url(#softGlow)"/>
+    <!-- Astrolabe Background -->
+    <circle cx="512" cy="512" r="360" fill="none" stroke="#cfa15f" stroke-width="6" stroke-dasharray="10 14" opacity="0.4"/>
+  <circle cx="512" cy="512" r="320" fill="none" stroke="#d99a8b" stroke-width="4" opacity="0.3"/>
+  <polygon points="512,92 516.1411047216403,496.5451867793749 722,148.26933041053576 523.3137084989847,500.68629150101526 875.7306695894642,302 527.454813220625,507.8588952783597 932,512 527.454813220625,516.1411047216403 875.7306695894642,722 523.3137084989847,523.3137084989847 722,875.7306695894642 516.1411047216403,527.454813220625 512,932 507.8588952783597,527.454813220625 302.0000000000001,875.7306695894642 500.68629150101526,523.3137084989847 148.26933041053582,722.0000000000001 496.5451867793749,516.1411047216403 92,512 496.5451867793749,507.8588952783597 148.26933041053582,301.99999999999994 500.68629150101526,500.68629150101526 301.9999999999998,148.26933041053582 507.8588952783597,496.5451867793749" fill="none" stroke="#cfa15f" stroke-width="3" opacity="0.2"/>
+    <path d="M512 84 C517.76 121.44 522.56 126.24 560 132 C522.56 137.76 517.76 142.56 512 180 C506.24 142.56 501.44 137.76 464 132 C501.44 126.24 506.24 121.44 512 84Z" fill="#cfa15f" opacity="0.9"/>
+    <path d="M512 844 C517.76 881.44 522.56 886.24 560 892 C522.56 897.76 517.76 902.56 512 940 C506.24 902.56 501.44 897.76 464 892 C501.44 886.24 506.24 881.44 512 844Z" fill="#d99a8b" opacity="0.9"/>
+    <path d="M132 464 C137.76 501.44 142.56 506.24 180 512 C142.56 517.76 137.76 522.56 132 560 C126.24 522.56 121.44 517.76 84 512 C121.44 506.24 126.24 501.44 132 464Z" fill="#d99a8b" opacity="0.9"/>
+    <path d="M892 464 C897.76 501.44 902.56 506.24 940 512 C902.56 517.76 897.76 522.56 892 560 C886.24 522.56 881.44 517.76 844 512 C881.44 506.24 886.24 501.44 892 464Z" fill="#cfa15f" opacity="0.9"/>
+    <!-- Ribbons -->
+    <path d="M180 500 C120 540 160 620 220 620" stroke="#c56f82" stroke-width="24" stroke-linecap="round" fill="none" opacity="0.8"/>
+  <path d="M190 510 C140 540 170 610 220 610" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6"/><path d="M844 500 C904 540 864 620 804 620" stroke="#c56f82" stroke-width="24" stroke-linecap="round" fill="none" opacity="0.8"/>
+  <path d="M834 510 C884 540 854 610 804 610" stroke="#cfa15f" stroke-width="6" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <!-- Envelope -->
+    <path d="M220 380 H804 V662 H220 Z" fill="#fff7ea" stroke="url(#goldRose)" stroke-width="20" filter="url(#gentleShadow)"/><rect x="244" y="404" width="536" height="234" rx="12" fill="none" stroke="#11172d" stroke-width="4" opacity="0.2"/>
+    <path d="M224 384 L512 566 L800 384" stroke="#d99a8b" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/><path d="M224 660 L452 512" stroke="#cfa15f" stroke-width="10" stroke-linecap="round"/><path d="M800 660 L572 512" stroke="#cfa15f" stroke-width="10" stroke-linecap="round"/>
+    <!-- Seal -->
+    <circle cx="512" cy="520" r="54" fill="#11172d" stroke="#cfa15f" stroke-width="8" filter="url(#gentleShadow)"/>
+  <path d="M500 496 C520 496 540 510 540 530 C540 550 516 546 516 546 C500 546 488 534 488 520 C488 506 500 496 500 496Z" fill="#fff7ea"/>
+  <polygon points="532,500 534.1213203435597,505.87867965644034 540,508 534.1213203435597,510.12132034355966 532,516 529.8786796564403,510.12132034355966 524,508 529.8786796564403,505.87867965644034" fill="#cfa15f"/>
+    <!-- Sparkles -->
+    <path d="M300 296 C302.88 314.72 305.28 317.12 324 320 C305.28 322.88 302.88 325.28 300 344 C297.12 325.28 294.72 322.88 276 320 C294.72 317.12 297.12 314.72 300 296Z" fill="url(#goldRose)" opacity="1"/>
+    <path d="M724 296 C726.88 314.72 729.28 317.12 748 320 C729.28 322.88 726.88 325.28 724 344 C721.12 325.28 718.72 322.88 700 320 C718.72 317.12 721.12 314.72 724 296Z" fill="#d99a8b" opacity="0.78"/>
+    <path d="M240 662 C242.16 676.04 243.96 677.84 258 680 C243.96 682.16 242.16 683.96 240 698 C237.84 683.96 236.04 682.16 222 680 C236.04 677.84 237.84 676.04 240 662Z" fill="#cfa15f" opacity="0.6"/>
+    <path d="M780 662 C782.16 676.04 783.96 677.84 798 680 C783.96 682.16 782.16 683.96 780 698 C777.84 683.96 776.04 682.16 762 680 C776.04 677.84 777.84 676.04 780 662Z" fill="#d99a8b" opacity="0.6"/>
+</svg>
