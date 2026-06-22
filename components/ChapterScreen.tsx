@@ -666,59 +666,108 @@ function Ch6Diptych({ chapter }: { chapter: Chapter }) {
 
   return (
     <div className="flex flex-1 flex-col gap-0">
-      {/* ── TOP HALF — bracelet panel ── */}
+      {/* ── TOP HALF — bracelet orbital panel ── */}
       <motion.div
-        className="relative flex items-center justify-center overflow-hidden rounded-t-[1.25rem] border border-b-0 border-[#cfa15f]/20"
-        style={{
-          background: "linear-gradient(160deg, rgba(26,18,48,0.9) 0%, rgba(18,14,32,0.95) 100%)",
-          minHeight: "14rem",
-        }}
+        className="relative flex flex-col items-center justify-center overflow-hidden rounded-t-[1.25rem] border border-b-0 border-[#cfa15f]/20 px-4 pb-5 pt-4"
+        style={{ background: "linear-gradient(160deg, rgba(26,18,48,0.9) 0%, rgba(18,14,32,0.95) 100%)", minHeight: "16rem" }}
         initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.12, duration: 0.6, ease: EASE_SMOOTH }}
-        onClick={() => { if (!glow) { setGlow(true); setTimeout(() => setGlow(false), 2000); } }}
+        onClick={() => { if (!glow) { setGlow(true); setTimeout(() => setGlow(false), 2200); } }}
       >
-        {/* Eyebrow + title inside top panel */}
-        <div className="absolute top-4 w-full text-center">
+        {/* Eyebrow + title */}
+        <div className="mb-3 text-center">
           <p className="font-accent italic text-sm text-[#d99a8b]/80 tracking-wider">{chapter.eyebrow}</p>
           <h1 className="font-display text-xl font-bold tracking-[0.14em] uppercase bg-gradient-to-r from-[#ffe8cc] to-[#d99a8b] bg-clip-text text-transparent">{chapter.title}</h1>
         </div>
 
-        {/* Magic ring bg */}
-        <div className="absolute inset-[15%] flex items-center justify-center opacity-15 pointer-events-none">
-          <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" className="text-[#b8a9c9]" style={{ animation: "spin 90s linear infinite reverse" }}>
-            <circle cx="100" cy="100" r="90" stroke="currentColor" strokeWidth="0.8" strokeDasharray="6 6" />
-            <circle cx="100" cy="100" r="70" stroke="currentColor" strokeWidth="0.5" />
-          </svg>
-        </div>
+        {/* ── Orbital scene — single square container, everything shares center ── */}
+        <div className="relative h-36 w-36 flex-shrink-0">
 
-        {/* Glow pulse on click */}
-        {glow && (
-          <motion.div className="absolute inset-[20%] rounded-full bg-[#b8a9c9]/15 blur-2xl pointer-events-none"
-            animate={{ opacity: [0, 0.8, 0], scale: [1, 1.2, 1] }}
-            transition={{ duration: 1.4 }} />
-        )}
-
-        {/* Bracelet */}
-        <motion.div
-          className="relative z-10 h-28 w-28 mt-10"
-          animate={glow ? { scale: [1, 1.08, 1] } : { y: [0, -7, 0] }}
-          transition={glow ? { duration: 1.2 } : { duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-        >
-          {chapter.frameAsset && (
-            <AssetImage src={chapter.frameAsset} alt="" aria-hidden className="absolute inset-[-15%] h-[130%] w-[130%] object-contain opacity-50" />
+          {/* Glow pulse on click */}
+          {glow && (
+            <motion.div
+              className="absolute inset-0 rounded-full bg-[#b8a9c9]/18 blur-2xl pointer-events-none z-0"
+              animate={{ opacity: [0, 0.8, 0], scale: [1, 1.3, 1] }}
+              transition={{ duration: 1.6 }}
+            />
           )}
-          <AssetImage src={chapter.heroAsset} alt="Bracelet" className="h-full w-full object-contain drop-shadow-[0_4px_16px_rgba(184,169,201,0.4)]" />
-        </motion.div>
 
-        {/* Orbiting dots */}
-        <motion.div
-          className="absolute inset-[28%]"
-          animate={{ rotate: [0, 360] }}
-          transition={{ duration: 16, repeat: Infinity, ease: "linear" }}
-        >
-          <span className="absolute left-1/2 -top-1 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#b8a9c9]" />
-          <span className="absolute right-0 top-1/2 h-1 w-1 -translate-y-1/2 rounded-full bg-[#cfa15f]" />
-        </motion.div>
+          {/* Orbit rings — same size as container, perfectly centered */}
+          <motion.svg
+            className="absolute inset-0 h-full w-full text-[#b8a9c9] opacity-20 pointer-events-none"
+            viewBox="0 0 144 144" fill="none"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 90, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "50%", originY: "50%" }}
+          >
+            <circle cx="72" cy="72" r="68" stroke="currentColor" strokeWidth="0.9" strokeDasharray="5 5" />
+          </motion.svg>
+
+          <motion.svg
+            className="absolute inset-0 h-full w-full text-[#cfa15f] opacity-15 pointer-events-none"
+            viewBox="0 0 144 144" fill="none"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "50%", originY: "50%" }}
+          >
+            <circle cx="72" cy="72" r="56" stroke="currentColor" strokeWidth="0.6" />
+          </motion.svg>
+
+          <svg
+            className="absolute inset-0 h-full w-full text-[#cfa15f] opacity-10 pointer-events-none"
+            viewBox="0 0 144 144" fill="none"
+          >
+            <circle cx="72" cy="72" r="42" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 6" />
+          </svg>
+
+          {/* Orbiting dots — rotate around the exact center (72, 72) */}
+          {/* Outer orbit dot */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            animate={{ rotate: 360 }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "50%", originY: "50%" }}
+          >
+            {/* dot sits at top-center of the 144px orbit circle (r=68 → top = 72-68 = 4px) */}
+            <span
+              className="absolute h-2 w-2 rounded-full bg-[#cfa15f] shadow-[0_0_6px_rgba(207,161,95,0.7)]"
+              style={{ top: "4px", left: "calc(50% - 4px)" }}
+            />
+          </motion.div>
+
+          {/* Inner orbit dot */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            animate={{ rotate: -360 }}
+            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            style={{ originX: "50%", originY: "50%" }}
+          >
+            {/* r=56 → top = 72-56 = 16px */}
+            <span
+              className="absolute h-1.5 w-1.5 rounded-full bg-[#d99a8b] shadow-[0_0_5px_rgba(217,154,139,0.6)]"
+              style={{ top: "16px", left: "calc(50% - 3px)" }}
+            />
+          </motion.div>
+
+          {/* Bracelet — absolutely centered */}
+          <motion.div
+            className="absolute inset-[22%] z-10"
+            animate={glow ? { scale: [1, 1.1, 1] } : { y: [0, -5, 0] }}
+            transition={glow ? { duration: 1.2 } : { duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <AssetImage
+              src={chapter.heroAsset}
+              alt="Bracelet"
+              className="h-full w-full object-contain drop-shadow-[0_4px_16px_rgba(184,169,201,0.45)]"
+            />
+          </motion.div>
+
+          {/* Center glow */}
+          <div
+            className="absolute inset-[30%] -z-10 rounded-full blur-xl pointer-events-none"
+            style={{ background: "radial-gradient(circle, rgba(184,169,201,0.18) 0%, transparent 70%)" }}
+          />
+        </div>
       </motion.div>
 
       {/* ── Gold divider line ── */}
@@ -730,9 +779,7 @@ function Ch6Diptych({ chapter }: { chapter: Chapter }) {
       {/* ── BOTTOM HALF — copy panel ── */}
       <motion.div
         className="overflow-hidden rounded-b-[1.25rem] border border-t-0 border-[#cfa15f]/20"
-        style={{
-          background: "linear-gradient(160deg, rgba(15,12,28,0.92) 0%, rgba(18,14,34,0.95) 100%)",
-        }}
+        style={{ background: "linear-gradient(160deg, rgba(15,12,28,0.92) 0%, rgba(18,14,34,0.95) 100%)" }}
         initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2, duration: 0.6, ease: EASE_SMOOTH }}
       >
@@ -754,6 +801,7 @@ function Ch6Diptych({ chapter }: { chapter: Chapter }) {
     </div>
   );
 }
+
 
 /* ═══════════════════════════════════════════════════════
    CH 7 — "Gallery Grid"
