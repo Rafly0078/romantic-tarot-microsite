@@ -9,14 +9,12 @@ type PhotoPlaceholderProps = {
   /** Optional label text shown inside the placeholder */
   label?: string;
   className?: string;
-  showTape?: boolean;
 };
 
 export function PhotoPlaceholder({
   frameAsset,
   label = "foto kamu di sini",
-  className,
-  showTape = false
+  className
 }: PhotoPlaceholderProps) {
   return (
     <motion.div
@@ -69,15 +67,7 @@ export function PhotoPlaceholder({
         className="absolute inset-0 z-20 h-full w-full object-contain"
       />
 
-      {/* Ripped Washi Tape Sticker (on top of frame) */}
-      {showTape && (
-        <div
-          className="absolute top-[8%] left-1/2 -translate-x-1/2 w-[45%] h-5 bg-[#fffaf0]/40 backdrop-blur-[1px] border-y border-white/40 rotate-[-2deg] shadow-[0_1px_3px_rgba(0,0,0,0.05)] z-30"
-          style={{
-            clipPath: "polygon(2% 0%, 98% 1%, 100% 15%, 98% 85%, 100% 100%, 0% 98%, 2% 85%, 0% 15%)"
-          }}
-        />
-      )}
+
 
       {/* Corner sparkles */}
       <SparkleIcon

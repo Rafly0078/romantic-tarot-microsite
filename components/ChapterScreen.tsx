@@ -258,7 +258,6 @@ function ArrivalContent({ chapter }: { chapter: Chapter }) {
             <PhotoPlaceholder
               frameAsset={chapter.photoFrameAsset}
               className="w-full drop-shadow-xl"
-              showTape={true}
             />
           </motion.div>
         )}
@@ -506,7 +505,6 @@ function ClosingContent({ chapter }: { chapter: Chapter }) {
               frameAsset={chapter.photoFrameAsset}
               className="w-full drop-shadow-md"
               label="foto kamu ✦"
-              showTape={true}
             />
           </motion.div>
         )}
