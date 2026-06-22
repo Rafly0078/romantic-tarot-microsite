@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-21T23:25:51.738Z",
+  "generatedAt": "2026-06-22T06:41:39.374Z",
   "assets": {
     "celestial": [
       "/assets/celestial/sun_ornate_01.png",
@@ -27,7 +27,9 @@
       "/assets/decor/ribbon_02.png",
       "/assets/decor/heart_mini_01.png",
       "/assets/decor/heart_mini_02.png",
-      "/assets/decor/magical_swirl_01.png"
+      "/assets/decor/magical_swirl_01.png",
+      "/assets/decor/heart_orbit_clear_01.png",
+      "/assets/decor/photo_sparkle_cluster_clear_01.png"
     ],
     "cards": [
       "/assets/cards/tarot_card_frame_front_01.png",
@@ -51,6 +53,7 @@
       "/assets/mascot/mascot_familiar_01.png",
       "/assets/mascot/wand_star_01.png",
       "/assets/mascot/envelope_winged_01.png",
+      "/assets/mascot/envelope_clear_01.png",
       "/assets/mascot/gift_box_magical_01.png"
     ],
     "bracelet": [
@@ -61,7 +64,9 @@
     "placeholders": [
       "/assets/placeholders/lover_photo_frame_tarot_portrait_01.png",
       "/assets/placeholders/lover_photo_frame_moon_portrait_01.png",
-      "/assets/placeholders/lover_photo_frame_soft_oval_01.png"
+      "/assets/placeholders/lover_photo_frame_soft_oval_01.png",
+      "/assets/placeholders/lover_photo_frame_clear_portrait_01.png",
+      "/assets/placeholders/lover_photo_frame_clear_oval_01.png"
     ],
     "loading": [
       "/assets/loading/loading_tarot_card_01.png",

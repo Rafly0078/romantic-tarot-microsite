@@ -11,7 +11,9 @@ export const assetPaths = {
     divider: "/assets/decor/divider_tarot_01.png",
     ribbon: "/assets/decor/ribbon_01.png",
     heart: "/assets/decor/heart_mini_01.png",
-    swirl: "/assets/decor/magical_swirl_01.png"
+    swirl: "/assets/decor/magical_swirl_01.png",
+    heartOrbitClear: "/assets/decor/heart_orbit_clear_01.png",
+    photoSparkleClear: "/assets/decor/photo_sparkle_cluster_clear_01.png"
   },
   cards: {
     frameFront: "/assets/cards/tarot_card_frame_front_01.png",
@@ -35,6 +37,7 @@ export const assetPaths = {
     familiar: "/assets/mascot/mascot_familiar_01.png",
     wand: "/assets/mascot/wand_star_01.png",
     envelope: "/assets/mascot/envelope_winged_01.png",
+    envelopeClear: "/assets/mascot/envelope_clear_01.png",
     gift: "/assets/mascot/gift_box_magical_01.png"
   },
   bracelet: {
@@ -45,7 +48,9 @@ export const assetPaths = {
   placeholders: {
     tarotPortrait: "/assets/placeholders/lover_photo_frame_tarot_portrait_01.png",
     moonPortrait: "/assets/placeholders/lover_photo_frame_moon_portrait_01.png",
-    softOval: "/assets/placeholders/lover_photo_frame_soft_oval_01.png"
+    softOval: "/assets/placeholders/lover_photo_frame_soft_oval_01.png",
+    clearPortrait: "/assets/placeholders/lover_photo_frame_clear_portrait_01.png",
+    clearOval: "/assets/placeholders/lover_photo_frame_clear_oval_01.png"
   },
   loading: {
     card1: "/assets/loading/loading_tarot_card_01.png",

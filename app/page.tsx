@@ -14,7 +14,11 @@ const CHAPTER_BACKGROUNDS = [
   "radial-gradient(ellipse 80% 60% at 50% 30%, #1a1535 0%, #110e20 50%, #0a0816 100%)",
   "radial-gradient(ellipse 80% 60% at 50% 40%, #171230 0%, #0f0c1e 50%, #0a0816 100%)",
   "radial-gradient(ellipse 80% 60% at 50% 35%, #151028 0%, #0d0a1a 50%, #080612 100%)",
-  "radial-gradient(ellipse 80% 60% at 40% 40%, #1a1230 0%, #12101f 50%, #0a0816 100%)"
+  "radial-gradient(ellipse 80% 60% at 40% 40%, #1a1230 0%, #12101f 50%, #0a0816 100%)",
+  "radial-gradient(ellipse 80% 60% at 55% 35%, #1b1431 0%, #100d20 50%, #090714 100%)",
+  "radial-gradient(ellipse 80% 60% at 45% 35%, #16152d 0%, #0f0c1d 52%, #080612 100%)",
+  "radial-gradient(ellipse 80% 60% at 50% 42%, #1c142b 0%, #110c1f 50%, #090613 100%)",
+  "radial-gradient(ellipse 80% 60% at 50% 32%, #181333 0%, #0e0b1d 50%, #080612 100%)"
 ];
 
 export default function Home() {

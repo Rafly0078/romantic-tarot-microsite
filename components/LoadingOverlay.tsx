@@ -16,7 +16,11 @@ const CONTEXT_MESSAGES: Record<number, string> = {
   0: "Mengocok kartu terbaik buat kamu...",
   1: "Menyusun langit kecil berikutnya...",
   2: "Menarik selembar cerita baru...",
-  3: "Merangkai sedikit sihir untuk halaman terakhir..."
+  3: "Menyiapkan ruang kecil buat fotomu...",
+  4: "Menyimpan memori manis berikutnya...",
+  5: "Merapikan benang kecil yang nyambung...",
+  6: "Membuka album bintang berikutnya...",
+  7: "Merangkai sedikit sihir untuk hadiah terakhir..."
 };
 
 const CARD_COUNT = 5;

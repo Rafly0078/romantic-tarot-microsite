@@ -5,6 +5,7 @@ import { useState, useCallback } from "react";
 import type { TarotReveal } from "@/data/chapters";
 import { assetPaths } from "@/data/assets";
 import { AssetImage } from "./AssetImage";
+import { PhotoPlaceholder } from "./PhotoPlaceholder";
 import { SparkleParticles } from "./SparkleParticles";
 
 type InteractiveTarotCardsProps = {
@@ -59,7 +60,7 @@ export function InteractiveTarotCards({ cards }: InteractiveTarotCardsProps) {
       {/* Card fan spread */}
       <div className="relative mx-auto flex h-[280px] w-full max-w-[340px] items-center justify-center">
         {cards.map((card, idx) => {
-          const cfg = FAN_CONFIGS[idx];
+          const cfg = FAN_CONFIGS[idx] ?? FAN_CONFIGS[idx % FAN_CONFIGS.length];
           const isFlipped = flippedIds.has(card.id);
           const isSelected = selectedId === card.id;
           const isInactive = selectedId !== null && !isSelected;
@@ -104,6 +105,8 @@ function TarotCardSingle({
   onTap,
   sparkleTrigger
 }: TarotCardSingleProps) {
+  const isPhotoCard = card.variant === "photo";
+
   return (
     <div
       className="absolute inset-0 flex items-center justify-center pointer-events-none"
@@ -216,6 +219,37 @@ function TarotCardSingle({
           <div className="absolute inset-[9px] border border-[#cfa15f]/15 rounded-[9px] pointer-events-none" />
 
           {/* Content */}
+          {isPhotoCard ? (
+            <div
+              className="absolute inset-0 z-10 flex flex-col items-center justify-center px-3 py-3 text-center"
+              aria-label={card.photoSlot ? `Slot foto: ${card.photoSlot}` : undefined}
+            >
+              <span className="text-[8px] text-[#cfa15f]/60 select-none animate-pulse">✦</span>
+
+              <span className="mt-1 block font-display text-[0.68rem] font-bold leading-tight tracking-widest text-[#a67c42] uppercase px-1">
+                {card.title}
+              </span>
+
+              <div className="mt-1.5 w-[62%]">
+                <PhotoPlaceholder
+                  frameAsset={card.photoFrameAsset ?? assetPaths.placeholders.tarotPortrait}
+                  label={card.photoLabel ?? "foto Ila"}
+                  photoSrc={card.photoSrc}
+                  photoAlt={card.photoAlt ?? card.title}
+                  compact
+                  className="w-full drop-shadow-[0_6px_18px_rgba(0,0,0,0.16)]"
+                />
+              </div>
+
+              <p className="mt-1.5 max-h-[2.65rem] overflow-hidden px-1 text-[0.5rem] font-medium leading-[1.25] text-[#2c2620]">
+                {card.message}
+              </p>
+
+              <span className="mt-1 block text-[5.5px] tracking-[0.14em] text-[#d99a8b] font-semibold">
+                PHOTO SPELL
+              </span>
+            </div>
+          ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center px-4.5 py-4 text-center z-10">
             {/* Small celestial star decoration at top */}
             <span className="text-[9px] text-[#cfa15f]/60 select-none animate-pulse">✦</span>
@@ -239,6 +273,7 @@ function TarotCardSingle({
               ✦ SOULMATE ✦
             </span>
           </div>
+          )}
         </div>
       </motion.div>
 

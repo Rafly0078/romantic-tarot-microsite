@@ -62,7 +62,9 @@ const assets: Asset[] = [
     "ribbon_02",
     "heart_mini_01",
     "heart_mini_02",
-    "magical_swirl_01"
+    "magical_swirl_01",
+    "heart_orbit_clear_01",
+    "photo_sparkle_cluster_clear_01"
   ]),
   ...names("cards", 1536, 2304, [
     "tarot_card_frame_front_01",
@@ -90,6 +92,7 @@ const assets: Asset[] = [
     "mascot_familiar_01",
     "wand_star_01",
     "envelope_winged_01",
+    "envelope_clear_01",
     "gift_box_magical_01"
   ]),
   ...names("bracelet", 1024, 1024, [
@@ -100,7 +103,9 @@ const assets: Asset[] = [
   ...names("placeholders", 1200, 1600, [
     "lover_photo_frame_tarot_portrait_01",
     "lover_photo_frame_moon_portrait_01",
-    "lover_photo_frame_soft_oval_01"
+    "lover_photo_frame_soft_oval_01",
+    "lover_photo_frame_clear_portrait_01",
+    "lover_photo_frame_clear_oval_01"
   ]),
   ...names("loading", 1400, 2200, [
     "loading_tarot_card_01",
@@ -263,6 +268,8 @@ function drawAsset(asset: Asset) {
   if (name.startsWith("divider_tarot")) return drawDivider(name);
   if (name.startsWith("floral_mini")) return drawFloral(name);
   if (name.startsWith("ribbon")) return drawRibbon(name);
+  if (name.startsWith("heart_orbit_clear")) return drawHeartOrbitClear();
+  if (name.startsWith("photo_sparkle_cluster_clear")) return drawPhotoSparkleClusterClear();
   if (name.startsWith("heart_mini")) return drawHeart(name);
   if (name.startsWith("magical_swirl")) return drawSwirl();
   if (name.startsWith("tarot_card_frame_front")) return drawTarotFront(name, asset.width, asset.height);
@@ -273,10 +280,12 @@ function drawAsset(asset: Asset) {
   if (name.startsWith("progress_frame")) return drawProgress(asset.width, asset.height);
   if (name.startsWith("mascot_familiar")) return drawMascot();
   if (name.startsWith("wand_star")) return drawWand();
+  if (name.startsWith("envelope_clear")) return drawEnvelopeClear();
   if (name.startsWith("envelope_winged")) return drawEnvelope();
   if (name.startsWith("gift_box")) return drawGift();
   if (name.startsWith("bracelet_placeholder")) return drawBracelet();
   if (name.startsWith("bracelet_display_frame")) return drawBraceletFrame(name);
+  if (name.startsWith("lover_photo_frame_clear")) return drawPhotoFrameClear(name, asset.width, asset.height);
   if (name.startsWith("lover_photo_frame")) return drawPhotoFrame(name, asset.width, asset.height);
   if (name.startsWith("loading_tarot_card")) return drawLoadingCard(name, asset.width, asset.height);
   if (name.startsWith("loading_starburst")) return drawStarburst(asset.width, asset.height);
@@ -518,6 +527,40 @@ function drawHeart(name: string) {
     ${sparkle(252, 280, 28)}
     ${sparkle(760, 284, 24, palette.roseGold, 0.84)}
     ${sparkle(516, 820, 18, palette.gold, 0.72)}`
+  );
+}
+
+function drawHeartOrbitClear() {
+  return svg(
+    1024,
+    1024,
+    `<g>
+      <ellipse cx="512" cy="512" rx="310" ry="214" fill="none" stroke="${palette.gold}" stroke-width="10" stroke-dasharray="18 22" opacity="0.5"/>
+      <ellipse cx="512" cy="512" rx="250" ry="168" fill="none" stroke="${palette.roseGold}" stroke-width="6" opacity="0.34"/>
+      ${miniHeart(512, 506, 94, palette.blush, 0.88)}
+      <path d="M512 610 C438 558 394 512 394 442 C394 392 432 358 480 358 C500 358 518 368 532 388 C548 368 570 358 596 358 C644 358 682 394 682 444 C682 500 630 556 512 610Z" fill="none" stroke="${palette.gold}" stroke-width="12" stroke-linejoin="round" opacity="0.8"/>
+      ${sparkle(512, 232, 34, palette.gold, 0.85)}
+      ${sparkle(792, 514, 26, palette.roseGold, 0.75)}
+      ${sparkle(232, 514, 22, palette.roseGold, 0.72)}
+      ${sparkle(512, 792, 24, palette.gold, 0.7)}
+    </g>`
+  );
+}
+
+function drawPhotoSparkleClusterClear() {
+  return svg(
+    1024,
+    1024,
+    `<g>
+      ${sparkle(512, 468, 96, palette.gold, 0.92)}
+      ${sparkle(330, 360, 34, palette.roseGold, 0.82)}
+      ${sparkle(700, 370, 42, palette.gold, 0.74)}
+      ${sparkle(724, 650, 28, palette.roseGold, 0.7)}
+      ${sparkle(310, 650, 24, palette.gold, 0.65)}
+      <path d="M310 540 C416 476 602 476 714 540" stroke="${palette.gold}" stroke-width="9" stroke-linecap="round" opacity="0.42"/>
+      <path d="M344 588 C440 636 582 636 680 588" stroke="${palette.roseGold}" stroke-width="7" stroke-linecap="round" opacity="0.36"/>
+      <circle cx="512" cy="468" r="38" fill="${palette.ivory}" opacity="0.25"/>
+    </g>`
   );
 }
 
@@ -851,6 +894,34 @@ function drawWand() {
 }
 
 /* ─── ENHANCED: drawEnvelope (Celestial Tarot Messenger) ─── */
+function drawEnvelopeClear() {
+  const body = `<path d="M226 392 H798 V656 H226 Z" fill="${palette.ivory}" fill-opacity="0.96" stroke="url(#goldRose)" stroke-width="18" stroke-linejoin="round"/>`;
+  const flap = `<path d="M236 404 L512 574 L788 404" fill="none" stroke="${palette.roseGold}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M236 648 L454 512" fill="none" stroke="${palette.gold}" stroke-width="8" stroke-linecap="round"/>
+  <path d="M788 648 L570 512" fill="none" stroke="${palette.gold}" stroke-width="8" stroke-linecap="round"/>`;
+  const seal = `<circle cx="512" cy="526" r="44" fill="${palette.navy}" stroke="${palette.gold}" stroke-width="8"/>
+  <mask id="clearEnvelopeMoon"><rect width="1024" height="1024" fill="white"/><circle cx="528" cy="514" r="34" fill="black"/></mask>
+  <circle cx="504" cy="526" r="40" fill="${palette.ivory}" mask="url(#clearEnvelopeMoon)"/>
+  <polygon points="${starPoints(538, 532, 12, 5, 6)}" fill="${palette.gold}"/>`;
+
+  return svg(
+    1024,
+    1024,
+    `<g>
+      <path d="M190 708 C304 758 696 758 834 704" stroke="${palette.gold}" stroke-width="8" stroke-linecap="round" opacity="0.22"/>
+      ${body}
+      <rect x="260" y="426" width="504" height="198" rx="16" fill="none" stroke="${palette.navy}" stroke-width="4" opacity="0.14"/>
+      ${flap}
+      ${seal}
+      ${sparkle(512, 250, 34, palette.gold, 0.86)}
+      ${sparkle(236, 318, 22, palette.roseGold, 0.72)}
+      ${sparkle(800, 320, 22, palette.roseGold, 0.72)}
+      ${sparkle(214, 676, 18, palette.gold, 0.52)}
+      ${sparkle(812, 676, 18, palette.gold, 0.52)}
+    </g>`
+  );
+}
+
 function drawEnvelope() {
   // A glowing celestial astrolabe background
   const astrolabe = `<circle cx="512" cy="512" r="360" fill="none" stroke="${palette.gold}" stroke-width="6" stroke-dasharray="10 14" opacity="0.4"/>
@@ -1064,6 +1135,49 @@ function drawBraceletFrame(name: string) {
 }
 
 /* ─── ENHANCED: drawPhotoFrame ─── */
+function drawPhotoFrameClear(name: string, width: number, height: number) {
+  const oval = name.includes("oval");
+  const cx = width / 2;
+  const cy = height / 2;
+
+  if (oval) {
+    return svg(
+      width,
+      height,
+      `<g>
+        <ellipse cx="${cx}" cy="${cy}" rx="395" ry="540" fill="none" stroke="url(#goldRose)" stroke-width="22"/>
+        <ellipse cx="${cx}" cy="${cy}" rx="350" ry="492" fill="none" stroke="${palette.roseGold}" stroke-width="8" opacity="0.74"/>
+        <ellipse cx="${cx}" cy="${cy}" rx="304" ry="434" fill="none" stroke="${palette.gold}" stroke-width="4" stroke-dasharray="16 18" opacity="0.46"/>
+        ${sparkle(cx, cy - 542, 40, palette.gold, 0.9)}
+        ${sparkle(cx, cy + 542, 34, palette.roseGold, 0.8)}
+        ${sparkle(cx - 390, cy - 110, 22, palette.roseGold, 0.62)}
+        ${sparkle(cx + 390, cy + 110, 22, palette.gold, 0.62)}
+        ${miniHeart(cx - 264, cy + 386, 18, palette.rose, 0.44)}
+        ${miniHeart(cx + 264, cy - 386, 18, palette.rose, 0.44)}
+      </g>`
+    );
+  }
+
+  return svg(
+    width,
+    height,
+    `<g>
+      <rect x="150" y="156" width="${width - 300}" height="${height - 312}" rx="104" fill="none" stroke="url(#goldRose)" stroke-width="22"/>
+      <rect x="198" y="214" width="${width - 396}" height="${height - 428}" rx="66" fill="none" stroke="${palette.roseGold}" stroke-width="8" opacity="0.78"/>
+      <rect x="244" y="270" width="${width - 488}" height="${height - 540}" rx="42" fill="none" stroke="${palette.gold}" stroke-width="4" stroke-dasharray="14 18" opacity="0.46"/>
+      ${cornerFlourish(178, 178, 140, false, false, palette.gold, 8)}
+      ${cornerFlourish(width - 178, 178, 140, true, false, palette.gold, 8)}
+      ${cornerFlourish(178, height - 178, 140, false, true, palette.roseGold, 8)}
+      ${cornerFlourish(width - 178, height - 178, 140, true, true, palette.roseGold, 8)}
+      ${sparkle(cx, 180, 38, palette.gold, 0.86)}
+      ${sparkle(228, cy, 18, palette.roseGold, 0.62)}
+      ${sparkle(width - 228, cy, 18, palette.gold, 0.62)}
+      ${miniHeart(212, height - 230, 18, palette.rose, 0.42)}
+      ${miniHeart(width - 212, 230, 18, palette.rose, 0.42)}
+    </g>`
+  );
+}
+
 function drawPhotoFrame(name: string, width: number, height: number) {
   const oval = name.includes("oval");
   const moon = name.includes("moon");

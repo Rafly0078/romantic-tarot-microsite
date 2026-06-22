@@ -4,11 +4,11 @@ A dreamy, cute-mystical romantic QR microsite built with **Next.js**, **TypeScri
 
 ## ✨ Features
 
-- **4-chapter narrative flow** — The Arrival → The Bracelet → Feeling Cards → Closing Note
+- **8-chapter narrative flow** - intro, romantic chapters, photo-card moments, and a final gift note
 - **Interactive tarot card reading** — Tap to flip 3 poetic cards in a fan spread
 - **Magical loading transitions** — 5-card shuffle animation between chapters
 - **WhatsApp CTA** — Deep link to send a "parcel arrived" message
-- **Photo placeholders** — Decorative frames ready for real photos
+- **Photo placeholders** - Decorative frames and flip-card photo slots ready for real photos
 - **Procedurally generated SVG assets** — All illustrations generated from code
 - **Mobile-first** — Optimized for 390×844 to 430×932 viewports
 
@@ -114,19 +114,11 @@ export const siteConfig = {
 
 ### Replace Photo Placeholders
 
-The site has decorative photo frames in Chapters I and IV. To add real photos:
+The site has decorative photo frames in Chapters I, IV, V, VII, and VIII. To add real photos:
 
 1. Prepare your photo (portrait orientation, roughly 3:4 ratio)
-2. Place it in `public/assets/placeholders/`
-3. Update the component — in [`components/PhotoPlaceholder.tsx`](components/PhotoPlaceholder.tsx), add your photo as a layer:
-   ```tsx
-   {/* Add below the gradient background div */}
-   <img
-     src="/assets/placeholders/your-photo.jpg"
-     alt="Your description"
-     className="absolute inset-[14%] rounded-[1rem] object-cover"
-   />
-   ```
+2. Place it in `public/assets/photos/` using the suggested filenames in [`public/assets/photos/README.md`](public/assets/photos/README.md)
+3. Add the file path to the matching `photoSrc` value in [`data/chapters.ts`](data/chapters.ts), next to the existing `photoSlot`
 
 ### Customize Colors
 
