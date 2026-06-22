@@ -9,12 +9,12 @@ import { chapters, loadingMessages } from "@/data/chapters";
 
 const TRANSITION_MS = 2000;
 
-/** Subtle per-chapter background tint */
+/** Subtle per-chapter background tint — dark cosmic theme */
 const CHAPTER_BACKGROUNDS = [
-  "radial-gradient(circle at 50% 0%, #fffaf1 0%, #fff7ea 42%, #f5dbe0 100%)",
-  "radial-gradient(circle at 50% 0%, #fff9ee 0%, #fff7ea 40%, #f0d8cc 100%)",
-  "radial-gradient(circle at 50% 0%, #fef8ed 0%, #fff7ea 38%, #eedde5 100%)",
-  "radial-gradient(circle at 50% 0%, #fffaf1 0%, #fff7ea 44%, #e8d6e0 100%)"
+  "radial-gradient(ellipse 80% 60% at 50% 30%, #1a1535 0%, #110e20 50%, #0a0816 100%)",
+  "radial-gradient(ellipse 80% 60% at 50% 40%, #171230 0%, #0f0c1e 50%, #0a0816 100%)",
+  "radial-gradient(ellipse 80% 60% at 50% 35%, #151028 0%, #0d0a1a 50%, #080612 100%)",
+  "radial-gradient(ellipse 80% 60% at 40% 40%, #1a1230 0%, #12101f 50%, #0a0816 100%)"
 ];
 
 export default function Home() {
@@ -44,7 +44,7 @@ export default function Home() {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     timeoutRef.current = setTimeout(() => {
       setPendingIndex(null);
-    }, 2500); // 2.5s to let the intro zoom finish
+    }, 1200); // lighter transition, no heavy zoom
   }
 
   function goToChapter(index: number) {

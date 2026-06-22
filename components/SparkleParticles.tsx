@@ -13,7 +13,7 @@ type SparkleParticlesProps = {
 };
 
 type Particle = {
-  id: number;
+  id: string;
   x: number;
   y: number;
   size: number;
@@ -24,6 +24,12 @@ type Particle = {
 };
 
 const DEFAULT_COLORS = ["#cfa15f", "#d99a8b", "#f4c3ca", "#fff7ea", "#b8a9c9"];
+let particleIdCounter = 0;
+
+function nextParticleId() {
+  particleIdCounter += 1;
+  return `sparkle-${particleIdCounter}`;
+}
 
 export function SparkleParticles({
   count = 8,
@@ -33,12 +39,13 @@ export function SparkleParticles({
   className
 }: SparkleParticlesProps) {
   const [particles, setParticles] = useState<Particle[]>([]);
+  const colorsKey = colors.join("|");
 
   useEffect(() => {
     if (trigger === 0 && !continuous) return;
 
     const newParticles: Particle[] = Array.from({ length: count }, (_, i) => ({
-      id: Date.now() + i,
+      id: nextParticleId(),
       x: 30 + Math.random() * 40,
       y: 30 + Math.random() * 40,
       size: 3 + Math.random() * 6,
@@ -53,7 +60,7 @@ export function SparkleParticles({
       const timer = setTimeout(() => setParticles([]), 3500);
       return () => clearTimeout(timer);
     }
-  }, [trigger, continuous, count, colors]);
+  }, [trigger, continuous, count, colorsKey]);
 
   useEffect(() => {
     if (!continuous) return;
@@ -61,7 +68,7 @@ export function SparkleParticles({
       setParticles(prev =>
         prev.map(p => ({
           ...p,
-          id: Date.now() + Math.random(),
+          id: nextParticleId(),
           x: Math.random() * 100,
           y: Math.random() * 100,
           delay: Math.random() * 2

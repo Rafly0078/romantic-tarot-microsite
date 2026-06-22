@@ -8,7 +8,6 @@ import { getWhatsAppUrl } from "@/data/siteConfig";
 import { AssetImage } from "./AssetImage";
 import { PhotoPlaceholder } from "./PhotoPlaceholder";
 import { InteractiveTarotCards } from "./TarotCard";
-import { FloatingDecor } from "./FloatingDecor";
 import { SparkleIcon } from "./SparkleParticles";
 
 /* ═══════════════════════════════════════════════════════
@@ -35,6 +34,66 @@ const staggerChild = (delay: number) => ({
 });
 
 /* ═══════════════════════════════════════════════════════
+   COSMIC BACKGROUND — Constellation dots & ambient glow
+   ═══════════════════════════════════════════════════════ */
+const CONSTELLATION_STARS = Array.from({ length: 22 }, (_, i) => ({
+  id: i,
+  left: `${(i * 31 + 5) % 94}%`,
+  top: `${(i * 47 + 8) % 92}%`,
+  size: 1.2 + (i % 4) * 0.6,
+  delay: `${(i * 0.5) % 4}s`,
+  duration: `${2.5 + (i % 3) * 1.5}s`,
+  opacity: 0.2 + (i % 5) * 0.08,
+}));
+
+function CosmicBackground({ chapterIndex }: { chapterIndex: number }) {
+  const glowColors = [
+    "rgba(207, 161, 95, 0.06)",     // gold
+    "rgba(184, 169, 201, 0.07)",     // lavender
+    "rgba(217, 154, 139, 0.06)",     // rose-gold
+    "rgba(196, 111, 130, 0.05)",     // rose
+  ];
+
+  return (
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+      {/* Constellation stars */}
+      {CONSTELLATION_STARS.map((s) => (
+        <span
+          key={s.id}
+          className="twinkle-star"
+          style={{
+            left: s.left,
+            top: s.top,
+            width: s.size,
+            height: s.size,
+            borderRadius: "50%",
+            backgroundColor: "#fff7ea",
+            boxShadow: `0 0 ${s.size * 3}px rgba(255,247,234,0.4)`,
+            opacity: s.opacity,
+            "--twinkle-duration": s.duration,
+            "--twinkle-delay": s.delay,
+          } as React.CSSProperties}
+        />
+      ))}
+
+      {/* Ambient glow blobs */}
+      <div
+        className="absolute -right-20 top-[15%] h-52 w-52 rounded-full blur-3xl"
+        style={{ background: glowColors[chapterIndex] ?? glowColors[0] }}
+      />
+      <div
+        className="absolute -left-24 bottom-[20%] h-56 w-56 rounded-full blur-3xl intro-glow-pulse"
+        style={{ background: "rgba(207, 161, 95, 0.04)" }}
+      />
+
+      {/* Subtle celestial decorations */}
+      <AssetImage src={assetPaths.celestial.moon} className="absolute -right-6 top-[18%] w-20 opacity-[0.08]" alt="" />
+      <AssetImage src={assetPaths.celestial.stars} className="absolute left-2 top-[12%] w-14 opacity-[0.1]" alt="" />
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════
    MAIN CHAPTER SCREEN
    ═══════════════════════════════════════════════════════ */
 export function ChapterScreen({
@@ -57,9 +116,8 @@ export function ChapterScreen({
         exit={{ opacity: 0, y: -20, scale: 0.985 }}
         transition={{ duration: 0.6, ease: EASE_SMOOTH }}
       >
-        {/* Layer 0: Ambient background decorations */}
-        <FloatingDecor chapterIndex={index} />
-        <ChapterDecorations kind={chapter.kind} />
+        {/* Layer 0: Cosmic background with stars */}
+        <CosmicBackground chapterIndex={index} />
 
         {/* Layer 1: Top navigation */}
         <ChapterNav
@@ -75,24 +133,34 @@ export function ChapterScreen({
           {/* Header group */}
           <div className="flex flex-col items-center text-center space-y-2">
             <motion.p
-              className="font-accent text-lg md:text-xl leading-none text-rose tracking-wider font-normal italic"
+              className="font-accent text-lg md:text-xl leading-none text-[#d99a8b] tracking-wider font-normal italic"
               {...staggerChild(0.08)}
             >
               {chapter.eyebrow}
             </motion.p>
             <motion.h1
-              className="font-display text-[1.8rem] sm:text-3xl font-bold leading-snug tracking-[0.16em] text-navy uppercase text-center w-full px-2"
+              className="font-display text-[1.8rem] sm:text-3xl font-bold leading-snug tracking-[0.16em] bg-gradient-to-r from-[#ffe8cc] via-[#f1d0a5] to-[#d99a8b] bg-clip-text text-transparent uppercase text-center w-full px-2"
               {...staggerChild(0.14)}
             >
               {chapter.title}
             </motion.h1>
             <motion.p
-              className="max-w-[22rem] text-sm md:text-base font-display italic leading-relaxed text-charcoal/70 tracking-wide text-center mx-auto px-4"
+              className="max-w-[22rem] text-sm md:text-base font-display italic leading-relaxed text-[#c8bdd2]/80 tracking-wide text-center mx-auto px-4"
               {...staggerChild(0.2)}
             >
               {chapter.subtitle}
             </motion.p>
           </div>
+
+          {/* Gold divider */}
+          <motion.div
+            className="flex items-center justify-center gap-3 mx-auto w-full max-w-[180px]"
+            {...staggerChild(0.22)}
+          >
+            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-[#cfa15f]/40" />
+            <SparkleIcon size={8} color="#cfa15f" />
+            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-[#cfa15f]/40" />
+          </motion.div>
 
           {/* Chapter-specific content */}
           <motion.div {...staggerChild(0.26)} className="flex-1">
@@ -125,7 +193,7 @@ export function ChapterScreen({
 }
 
 /* ═══════════════════════════════════════════════════════
-   CHAPTER NAVIGATION — Tarot progress system
+   CHAPTER NAVIGATION — Tarot progress system (dark)
    ═══════════════════════════════════════════════════════ */
 function ChapterNav({
   chapter,
@@ -147,7 +215,7 @@ function ChapterNav({
         type="button"
         onClick={onPrevious}
         disabled={index === 0}
-        className="grid h-10 w-10 place-items-center rounded-full border border-gold/35 bg-ivory/80 text-navy shadow-sm backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:opacity-30"
+        className="grid h-10 w-10 place-items-center rounded-full border border-[#cfa15f]/25 bg-[#150f1f]/80 text-[#e8dfd0] shadow-sm backdrop-blur-sm transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold disabled:opacity-30"
         aria-label="Previous chapter"
       >
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
@@ -158,7 +226,7 @@ function ChapterNav({
       {/* Progress dots with connecting line */}
       <div className="relative flex min-w-0 flex-1 items-center justify-center">
         {/* Connecting Line */}
-        <div className="absolute inset-x-8 top-1/2 h-[1px] -translate-y-1/2 bg-gradient-to-r from-gold/10 via-gold/40 to-gold/10 border-t border-dashed border-gold/40 pointer-events-none" />
+        <div className="absolute inset-x-8 top-1/2 h-[1px] -translate-y-1/2 bg-gradient-to-r from-[#cfa15f]/5 via-[#cfa15f]/25 to-[#cfa15f]/5 pointer-events-none" />
         
         <div className="relative flex items-center justify-center gap-2">
           {Array.from({ length: total }).map((_, dotIdx) => {
@@ -177,7 +245,7 @@ function ChapterNav({
                   /* Active: Glowing Gold Celestial Star */
                   <motion.div
                     layoutId="activeNavDot"
-                    className="flex h-6 w-6 items-center justify-center rounded-full border border-gold bg-navy text-gold shadow-[0_0_10px_rgba(207,161,95,0.45)]"
+                    className="flex h-6 w-6 items-center justify-center rounded-full border border-[#cfa15f] bg-[#150f1f] text-[#cfa15f] shadow-[0_0_12px_rgba(207,161,95,0.5)]"
                     transition={{ type: "spring", stiffness: 350, damping: 25 }}
                   >
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
@@ -189,8 +257,8 @@ function ChapterNav({
                   <div
                     className={`h-2.5 w-2.5 rounded-full border transition-all duration-300 ${
                       isPast
-                        ? "border-gold bg-gold shadow-[0_0_4px_rgba(207,161,95,0.3)]"
-                        : "border-gold/30 bg-ivory/50"
+                        ? "border-[#cfa15f] bg-[#cfa15f] shadow-[0_0_6px_rgba(207,161,95,0.3)]"
+                        : "border-[#cfa15f]/25 bg-[#150f1f]/60"
                     }`}
                   />
                 )}
@@ -201,8 +269,8 @@ function ChapterNav({
       </div>
 
       {/* Roman numeral badge */}
-      <div className="flex h-10 min-w-[3.5rem] items-center justify-center rounded-full border border-gold/40 bg-ivory/85 backdrop-blur-sm">
-        <span className="font-display text-lg font-bold text-navy">
+      <div className="flex h-10 min-w-[3.5rem] items-center justify-center rounded-full border border-[#cfa15f]/30 bg-[#150f1f]/85 backdrop-blur-sm">
+        <span className="font-display text-lg font-bold text-[#ffe8cc]">
           {chapter.roman}
         </span>
         <SparkleIcon size={8} color="rgba(207, 161, 95, 0.5)" className="ml-0.5" />
@@ -212,15 +280,16 @@ function ChapterNav({
 }
 
 /* ═══════════════════════════════════════════════════════
-   CHAPTER I — THE ARRIVAL
+   CHAPTER I — THE ARRIVAL (Cosmic Scrapbook)
    ═══════════════════════════════════════════════════════ */
 function ArrivalContent({ chapter }: { chapter: Chapter }) {
   const [isClicked, setIsClicked] = useState(false);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
+      {/* Scrapbook-style collage */}
       <div 
-        className="relative mx-auto aspect-[4/5] w-[85%] max-w-[20rem] mt-2 mb-4 cursor-pointer"
+        className="relative mx-auto aspect-[4/5] w-[88%] max-w-[20rem] mt-2 mb-3 cursor-pointer"
         onClick={() => {
           if (!isClicked) {
             setIsClicked(true);
@@ -238,7 +307,7 @@ function ArrivalContent({ chapter }: { chapter: Chapter }) {
           >
             <SparkleIcon size={24} color="#d99a8b" className="absolute top-[20%] left-[10%]" />
             <SparkleIcon size={32} color="#cfa15f" className="absolute top-[10%] right-[20%]" />
-            <SparkleIcon size={28} color="#f8f4ec" className="absolute bottom-[30%] left-[20%]" />
+            <SparkleIcon size={28} color="#fff7ea" className="absolute bottom-[30%] left-[20%]" />
             <SparkleIcon size={20} color="#cfa15f" className="absolute bottom-[20%] right-[10%]" />
           </motion.div>
         )}
@@ -257,7 +326,7 @@ function ArrivalContent({ chapter }: { chapter: Chapter }) {
           >
             <PhotoPlaceholder
               frameAsset={chapter.photoFrameAsset}
-              className="w-full drop-shadow-xl"
+              className="w-full drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)]"
             />
           </motion.div>
         )}
@@ -276,22 +345,19 @@ function ArrivalContent({ chapter }: { chapter: Chapter }) {
           <TarotHeroCard chapter={chapter} />
         </motion.div>
 
-        {/* Ambient sparkle for the collage */}
-        <motion.div
-          className="absolute right-[35%] top-[-2%] z-20"
-          animate={{ opacity: [0.4, 1, 0.4], scale: [0.8, 1.1, 0.8] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        >
+        {/* Ambient sparkle */}
+        <div className="absolute right-[35%] top-[-2%] z-20 intro-sparkle-pulse">
           <SparkleIcon size={14} color="#cfa15f" />
-        </motion.div>
+        </div>
       </div>
-      <CopyPanel body={chapter.body} />
+
+      <CosmicCopyPanel body={chapter.body} />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════
-   CHAPTER II — THE BRACELET
+   CHAPTER II — THE BRACELET (Cosmic Scrapbook)
    ═══════════════════════════════════════════════════════ */
 function BraceletContent({ chapter }: { chapter: Chapter }) {
   const [isPulsing, setIsPulsing] = useState(false);
@@ -311,7 +377,7 @@ function BraceletContent({ chapter }: { chapter: Chapter }) {
         {/* Pulse Glow Effect */}
         {isPulsing && (
           <motion.div 
-            className="absolute inset-[15%] z-50 rounded-full bg-[#cfa15f]/40 blur-xl pointer-events-none"
+            className="absolute inset-[15%] z-50 rounded-full bg-[#cfa15f]/30 blur-xl pointer-events-none"
             animate={{ opacity: [0, 0.8, 0, 0.8, 0], scale: [1, 1.2, 1, 1.2, 1] }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
           />
@@ -328,15 +394,15 @@ function BraceletContent({ chapter }: { chapter: Chapter }) {
         )}
 
         {/* Concentric magical circle behind bracelet */}
-        <div className="absolute inset-[10%] flex items-center justify-center opacity-25 pointer-events-none select-none z-0">
-          <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" className="text-[#cfa15f] animate-spin" style={{ animationDuration: '60s' }}>
+        <div className="absolute inset-[10%] flex items-center justify-center opacity-20 pointer-events-none select-none z-0">
+          <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" className="text-[#cfa15f] intro-ring" style={{ "--ring-duration": "60s" } as React.CSSProperties}>
             <circle cx="100" cy="100" r="82" stroke="currentColor" strokeWidth="0.75" />
             <circle cx="100" cy="100" r="76" stroke="currentColor" strokeWidth="0.5" strokeDasharray="4 4" />
           </svg>
         </div>
 
-        {/* Golden elliptical orbit path behind bracelet */}
-        <div className="absolute inset-[16%] flex items-center justify-center opacity-40 pointer-events-none select-none z-0">
+        {/* Golden elliptical orbit path */}
+        <div className="absolute inset-[16%] flex items-center justify-center opacity-30 pointer-events-none select-none z-0">
           <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" className="text-[#cfa15f]">
             <ellipse cx="100" cy="100" rx="72" ry="72" stroke="currentColor" strokeWidth="1" strokeDasharray="3 4" />
           </svg>
@@ -359,7 +425,7 @@ function BraceletContent({ chapter }: { chapter: Chapter }) {
           <AssetImage
             src={chapter.heroAsset}
             alt="Decorative bracelet symbol"
-            className="h-full w-full object-contain drop-shadow-lg"
+            className="h-full w-full object-contain drop-shadow-[0_4px_16px_rgba(207,161,95,0.3)]"
           />
         </motion.div>
 
@@ -377,25 +443,25 @@ function BraceletContent({ chapter }: { chapter: Chapter }) {
         <div
           className="absolute inset-[20%] -z-10 rounded-full blur-2xl"
           style={{
-            background: "radial-gradient(circle, rgba(207, 161, 95, 0.15) 0%, transparent 70%)"
+            background: "radial-gradient(circle, rgba(207, 161, 95, 0.1) 0%, transparent 70%)"
           }}
         />
       </div>
 
-      <CopyPanel body={chapter.body} />
+      <CosmicCopyPanel body={chapter.body} />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════
-   CHAPTER III — FEELING CARDS
+   CHAPTER III — FEELING CARDS (Cosmic Scrapbook)
    ═══════════════════════════════════════════════════════ */
 function CardsContent({ chapter }: { chapter: Chapter }) {
   return (
     <div className="space-y-4 flex flex-col items-center">
-      {/* Mascot + intro text in a vertical stacked layout */}
+      {/* Mascot + intro text */}
       <div className="flex flex-col items-center gap-2.5 w-full">
-        {/* Floating Mascot Centered */}
+        {/* Floating Mascot */}
         <motion.div
           className="w-20 h-20 relative z-10"
           animate={{ y: [0, -6, 0], rotate: [-2, 2, -2] }}
@@ -404,17 +470,19 @@ function CardsContent({ chapter }: { chapter: Chapter }) {
           <AssetImage
             src={chapter.heroAsset}
             alt="Mascot familiar"
-            className="w-full h-full object-contain drop-shadow-lg select-none"
+            className="w-full h-full object-contain drop-shadow-[0_4px_12px_rgba(207,161,95,0.3)] select-none"
           />
-          {/* Tiny cute sparkle next to mascot */}
-          <SparkleIcon size={10} color="#cfa15f" className="absolute -top-1 -right-1 animate-pulse" />
+          {/* Sparkle next to mascot */}
+          <div className="absolute -top-1 -right-1 intro-sparkle-pulse">
+            <SparkleIcon size={10} color="#cfa15f" />
+          </div>
         </motion.div>
         
-        {/* Full-width copy panel */}
-        <CopyPanel body={chapter.body} className="w-full" compact />
+        {/* Copy panel */}
+        <CosmicCopyPanel body={chapter.body} className="w-full" compact />
       </div>
 
-      {/* Interactive tarot cards — fan spread */}
+      {/* Interactive tarot cards */}
       {chapter.revealCards && (
         <div className="w-full pt-1">
           <InteractiveTarotCards cards={chapter.revealCards} />
@@ -425,7 +493,7 @@ function CardsContent({ chapter }: { chapter: Chapter }) {
 }
 
 /* ═══════════════════════════════════════════════════════
-   CHAPTER IV — CLOSING
+   CHAPTER IV — CLOSING (Cosmic Scrapbook)
    ═══════════════════════════════════════════════════════ */
 function ClosingContent({ chapter }: { chapter: Chapter }) {
   const [isFlapping, setIsFlapping] = useState(false);
@@ -444,7 +512,7 @@ function ClosingContent({ chapter }: { chapter: Chapter }) {
       >
         {/* Winged envelope hero */}
         <div className="relative aspect-square w-[45%] max-w-[10rem]">
-          {/* Mini Hearts Burst */}
+          {/* Hearts Burst */}
           {isFlapping && (
             <motion.div
               className="absolute top-0 left-1/2 -translate-x-1/2 z-50 pointer-events-none"
@@ -475,22 +543,17 @@ function ClosingContent({ chapter }: { chapter: Chapter }) {
             <AssetImage
               src={chapter.heroAsset}
               alt="Decorative winged envelope"
-              className="h-full w-full object-contain drop-shadow-lg select-none"
+              className="h-full w-full object-contain drop-shadow-[0_4px_16px_rgba(207,161,95,0.3)] select-none"
             />
           </motion.div>
 
           {/* Sparkle trail */}
-          <SparkleIcon
-            size={12}
-            color="rgba(207, 161, 95, 0.4)"
-            className="absolute -right-2 top-1/4 animate-sparkle-pulse z-20"
-          />
-          <SparkleIcon
-            size={8}
-            color="rgba(217, 154, 139, 0.35)"
-            className="absolute -left-1 bottom-1/3 animate-sparkle-pulse z-20"
-            style={{ animationDelay: "0.6s" } as React.CSSProperties}
-          />
+          <div className="absolute -right-2 top-1/4 z-20 intro-sparkle-pulse">
+            <SparkleIcon size={12} color="rgba(207, 161, 95, 0.5)" />
+          </div>
+          <div className="absolute -left-1 bottom-1/3 z-20 intro-sparkle-pulse" style={{ animationDelay: "0.6s" }}>
+            <SparkleIcon size={8} color="rgba(217, 154, 139, 0.4)" />
+          </div>
         </div>
 
         {/* Photo placeholder */}
@@ -503,28 +566,28 @@ function ClosingContent({ chapter }: { chapter: Chapter }) {
           >
             <PhotoPlaceholder
               frameAsset={chapter.photoFrameAsset}
-              className="w-full drop-shadow-md"
+              className="w-full drop-shadow-[0_6px_20px_rgba(0,0,0,0.4)]"
               label="foto kamu ✦"
             />
           </motion.div>
         )}
       </div>
 
-      <CopyPanel body={chapter.body} compact />
+      <CosmicCopyPanel body={chapter.body} compact />
 
-      {/* Gentle closing note */}
+      {/* Closing note */}
       <motion.div
         className="mx-auto max-w-[18rem] text-center pt-1"
         {...staggerChild(0.5)}
       >
-        {/* Elegant tiny celestial divider */}
-        <div className="flex items-center justify-center gap-2 mb-3.5 opacity-60 pointer-events-none select-none">
-          <div className="h-[0.5px] w-6 bg-[#cfa15f]" />
+        {/* Celestial divider */}
+        <div className="flex items-center justify-center gap-2 mb-3.5 opacity-50 pointer-events-none select-none">
+          <div className="h-[0.5px] w-8 bg-gradient-to-r from-transparent to-[#cfa15f]" />
           <span className="text-[6px] text-[#cfa15f]">✦</span>
-          <div className="h-[0.5px] w-6 bg-[#cfa15f]" />
+          <div className="h-[0.5px] w-8 bg-gradient-to-l from-transparent to-[#cfa15f]" />
         </div>
         
-        <p className="font-accent text-[0.8rem] leading-relaxed text-charcoal/50">
+        <p className="font-accent text-[0.8rem] leading-relaxed text-[#b8a9c9]/50">
           ━━ sent with a little bit of magic ━━
         </p>
       </motion.div>
@@ -533,7 +596,7 @@ function ClosingContent({ chapter }: { chapter: Chapter }) {
 }
 
 /* ═══════════════════════════════════════════════════════
-   SHARED — Tarot Hero Card
+   SHARED — Tarot Hero Card (dark themed)
    ═══════════════════════════════════════════════════════ */
 function TarotHeroCard({ chapter }: { chapter: Chapter }) {
   return (
@@ -549,8 +612,8 @@ function TarotHeroCard({ chapter }: { chapter: Chapter }) {
       )}
 
       {/* Double gold border inner */}
-      <div className="absolute inset-1.5 border border-[#cfa15f]/35 rounded-[12px] pointer-events-none" />
-      <div className="absolute inset-[9px] border border-[#cfa15f]/15 rounded-[9px] pointer-events-none" />
+      <div className="absolute inset-1.5 border border-[#cfa15f]/25 rounded-[12px] pointer-events-none" />
+      <div className="absolute inset-[9px] border border-[#cfa15f]/10 rounded-[9px] pointer-events-none" />
 
       {/* Floating hero image */}
       <motion.div
@@ -561,12 +624,12 @@ function TarotHeroCard({ chapter }: { chapter: Chapter }) {
         <AssetImage
           src={chapter.heroAsset}
           alt="Decorative magical gift"
-          className="h-full w-full object-contain drop-shadow-lg select-none"
+          className="h-full w-full object-contain drop-shadow-[0_4px_16px_rgba(207,161,95,0.3)] select-none"
         />
       </motion.div>
 
-      {/* Glowing pulse behind the hero asset */}
-      <div className="absolute inset-[25%] bg-[#cfa15f]/10 blur-xl rounded-full -z-10 animate-pulse pointer-events-none" />
+      {/* Glowing pulse behind hero */}
+      <div className="absolute inset-[25%] bg-[#cfa15f]/8 blur-xl rounded-full -z-10 intro-glow-pulse pointer-events-none" />
 
       {/* Badge at bottom */}
       <AssetImage
@@ -577,24 +640,16 @@ function TarotHeroCard({ chapter }: { chapter: Chapter }) {
       />
 
       {/* Corner sparkles */}
-      <SparkleIcon
-        size={10}
-        color="rgba(207, 161, 95, 0.4)"
-        className="absolute -right-1 -top-1"
-      />
-      <SparkleIcon
-        size={7}
-        color="rgba(217, 154, 139, 0.35)"
-        className="absolute -bottom-1 -left-1"
-      />
+      <SparkleIcon size={10} color="rgba(207, 161, 95, 0.35)" className="absolute -right-1 -top-1" />
+      <SparkleIcon size={7} color="rgba(217, 154, 139, 0.3)" className="absolute -bottom-1 -left-1" />
     </div>
   );
 }
 
 /* ═══════════════════════════════════════════════════════
-   SHARED — Parchment Copy Panel
+   SHARED — Cosmic Copy Panel (dark glassmorphism)
    ═══════════════════════════════════════════════════════ */
-function CopyPanel({
+function CosmicCopyPanel({
   body,
   compact,
   className
@@ -604,29 +659,21 @@ function CopyPanel({
   className?: string;
 }) {
   return (
-    <div className={`parchment-panel ${className ?? ""}`}>
+    <div className={`cosmic-panel ${className ?? ""}`}>
       {/* Inner decorative border */}
-      <span className="parchment-panel-inner" />
+      <span className="cosmic-panel-inner" />
 
-      {/* Scrapbook Decor */}
-      <AssetImage src={assetPaths.decor.corner} className="absolute left-0 top-0 w-10 h-10 opacity-70" alt="" />
-      <AssetImage src={assetPaths.decor.corner} className="absolute right-0 bottom-0 w-10 h-10 opacity-70 rotate-180" alt="" />
-      <AssetImage src={assetPaths.decor.heart} className="absolute -left-2 top-1/2 w-6 h-6 opacity-60 -translate-y-1/2" alt="" />
-      <AssetImage src={assetPaths.decor.ribbon} className="absolute left-1/2 -top-2 w-28 opacity-85 -translate-x-1/2" alt="" />
-
-      {/* Decorative divider watermark */}
-      <AssetImage
-        src={assetPaths.decor.divider}
-        alt=""
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rotate-12 object-contain opacity-[0.16]"
-      />
+      {/* Decorative gold corners */}
+      <div className="absolute left-2 top-2 w-4 h-4 border-l border-t border-[#cfa15f]/20 rounded-tl-md pointer-events-none" />
+      <div className="absolute right-2 top-2 w-4 h-4 border-r border-t border-[#cfa15f]/20 rounded-tr-md pointer-events-none" />
+      <div className="absolute left-2 bottom-2 w-4 h-4 border-l border-b border-[#cfa15f]/20 rounded-bl-md pointer-events-none" />
+      <div className="absolute right-2 bottom-2 w-4 h-4 border-r border-b border-[#cfa15f]/20 rounded-br-md pointer-events-none" />
 
       <div className={compact ? "space-y-2 px-1" : "space-y-3 px-2"}>
         {body.map((line, lineIdx) => (
           <motion.p
             key={`${line.slice(0, 20)}-${lineIdx}`}
-            className={`${compact ? "text-[1rem]" : "text-[1.08rem] md:text-[1.18rem]"} relative font-accent font-normal leading-relaxed text-charcoal/95 text-center`}
+            className={`${compact ? "text-[1rem]" : "text-[1.08rem] md:text-[1.18rem]"} relative font-accent font-normal leading-relaxed text-[#e8dfd0]/90 text-center`}
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 + lineIdx * 0.1, duration: 0.5 }}
@@ -640,25 +687,29 @@ function CopyPanel({
 }
 
 /* ═══════════════════════════════════════════════════════
-   BUTTON & AMBIENT DECORATIONS
+   BUTTON (dark themed)
    ═══════════════════════════════════════════════════════ */
 function TarotButton({ onClick, href, children }: { onClick?: () => void; href?: string; children: React.ReactNode }) {
   const inner = (
     <>
       <AssetImage src={assetPaths.ui.buttonPrimary} className="absolute inset-0 w-full h-full object-fill opacity-95 drop-shadow-sm" alt="" />
-      <span className="relative z-10 flex items-center justify-center gap-2 font-display font-semibold text-lg text-ivory tracking-wide drop-shadow-md">
+      <span className="relative z-10 flex items-center justify-center gap-2 font-display font-semibold text-lg text-[#fff7ea] tracking-wide drop-shadow-md">
         {children}
       </span>
-      <SparkleIcon size={14} color="#cfa15f" className="absolute -right-2 -top-2 z-20 animate-sparkle-pulse" />
-      <SparkleIcon size={8} color="#fff7ea" className="absolute -left-1 -bottom-1 z-20 animate-sparkle-pulse" style={{animationDelay: '1.2s'} as React.CSSProperties} />
+      <div className="absolute -right-2 -top-2 z-20 intro-sparkle-pulse">
+        <SparkleIcon size={14} color="#cfa15f" />
+      </div>
+      <div className="absolute -left-1 -bottom-1 z-20 intro-sparkle-pulse" style={{ animationDelay: "1.2s" }}>
+        <SparkleIcon size={8} color="#fff7ea" />
+      </div>
     </>
   );
 
-  const className = "relative inline-flex items-center justify-center min-h-[4rem] w-full max-w-[20rem] mx-auto overflow-visible outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-[2rem] transition-transform hover:scale-[1.02] active:scale-[0.97]";
+  const buttonClassName = "relative inline-flex items-center justify-center min-h-[4rem] w-full max-w-[20rem] mx-auto overflow-visible outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-[2rem] transition-transform hover:scale-[1.02] active:scale-[0.97]";
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noreferrer" className={className}>
+      <a href={href} target="_blank" rel="noreferrer" className={buttonClassName}>
         {inner}
       </a>
     );
@@ -667,53 +718,13 @@ function TarotButton({ onClick, href, children }: { onClick?: () => void; href?:
   return (
     <motion.button
       type="button"
-      className={className}
+      className={buttonClassName}
       onClick={onClick}
       whileTap={{ scale: 0.95 }}
     >
       {inner}
     </motion.button>
   );
-}
-
-function ChapterDecorations({ kind }: { kind: ChapterKind }) {
-  // Returns different absolute decorations based on the chapter kind.
-  switch (kind) {
-    case "arrival":
-      return (
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <AssetImage src={assetPaths.celestial.sun} className="absolute -left-16 top-24 w-40 opacity-20 drop-shadow-lg" alt="" />
-          <AssetImage src={assetPaths.celestial.stars} className="absolute right-0 top-[15%] w-24 opacity-30" alt="" />
-          <AssetImage src={assetPaths.decor.swirl} className="absolute -right-10 bottom-[30%] w-32 opacity-25 -scale-x-100" alt="" />
-        </div>
-      );
-    case "bracelet":
-      return (
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <AssetImage src={assetPaths.celestial.moon} className="absolute -right-10 top-1/4 w-36 opacity-25 drop-shadow-lg" alt="" />
-          <AssetImage src={assetPaths.decor.swirl} className="absolute -left-8 top-[10%] w-28 opacity-30" alt="" />
-          <AssetImage src={assetPaths.celestial.cloud} className="absolute left-0 bottom-[20%] w-48 opacity-15" alt="" />
-        </div>
-      );
-    case "cards":
-      return (
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <AssetImage src={assetPaths.celestial.cloud} className="absolute -left-20 bottom-1/3 w-56 opacity-[0.18] drop-shadow-lg" alt="" />
-          <AssetImage src={assetPaths.celestial.stars} className="absolute right-2 top-1/4 w-20 opacity-30" alt="" />
-          <AssetImage src={assetPaths.decor.swirl} className="absolute right-0 bottom-1/4 w-24 opacity-25" alt="" />
-        </div>
-      );
-    case "closing":
-      return (
-        <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-          <AssetImage src={assetPaths.celestial.sun} className="absolute -right-16 top-[35%] w-56 opacity-15 drop-shadow-xl" alt="" />
-          <AssetImage src={assetPaths.celestial.moon} className="absolute -left-12 top-[10%] w-32 opacity-20" alt="" />
-          <AssetImage src={assetPaths.decor.swirl} className="absolute left-0 bottom-[15%] w-32 opacity-30" alt="" />
-        </div>
-      );
-    default:
-      return null;
-  }
 }
 
 /* ═══════════════════════════════════════════════════════

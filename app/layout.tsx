@@ -22,7 +22,11 @@ const accent = Patrick_Hand({
 
 export const metadata: Metadata = {
   title: "A Little Tarot Gift",
-  description: "A dreamy romantic QR microsite for a couple bracelet gift."
+  description: "A dreamy romantic QR microsite for a couple bracelet gift.",
+  icons: {
+    icon: "/assets/celestial/star_small_01.png",
+    apple: "/assets/celestial/star_small_01.png"
+  }
 };
 
 export const viewport: Viewport = {
